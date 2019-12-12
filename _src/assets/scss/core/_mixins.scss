@@ -1,0 +1,14 @@
+@mixin buttons() {
+  height: 30px;
+  border-radius: 3px;
+  color: $colorButton;
+  font-family: $fontPrimary;
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+@mixin center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

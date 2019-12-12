@@ -1,0 +1,41 @@
+.footer {
+  @include center();
+  border-top: solid $bottomBorder 1px;
+  flex-direction: column;
+  padding: 18px 0 20px 0;
+  height: 22vh;
+
+  &__paragraph {
+    color: $colorQuaternary;
+    opacity: 0.5;
+    font-family: $fontPrimary;
+    font-size: 14px;
+  }
+
+  &__logo {
+    width: 103px;
+    padding-top: 12px;
+  }
+  &__logo2 {
+    height: 50px;
+    padding-top: 12px;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 18px 40px 22px 41px;
+    height: 100%;
+
+    &__logo {
+      padding-top: 0;
+    }
+    &__logo2 {
+      padding-top: 0;
+      position: relative;
+      left: -48px;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+<form class="js-form-container" method="post">
+  <partial src="_collapsible.html" far="far" icon="fa-object-ungroup" text="Diseña"></partial>
+  <fieldset class="design-box hidden">
+    <h3 class="design-box__title">Colores</h3>
+    <div class="design-box__themes">
+      <div>
+        <label class="design-box__theme" for="1">
+          <input class="js-input-color" id="1" type="radio" checked="checked" value="1" name="palette" />
+          <div class="colors__container">
+            <div class="colors colors--green1"></div>
+            <div class="colors colors--green2"></div>
+            <div class="colors colors--green3"></div>
+          </div>
+        </label>
+      </div>
+      <div>
+        <label class="design-box__theme" for="2">
+          <input class="js-input-color" id="2" type="radio" value="2" name="palette" />
+          <div class="colors__container">
+            <div class="colors colors--red1"></div>
+            <div class="colors colors--red2"></div>
+            <div class="colors colors--red3"></div>
+          </div>
+        </label>
+      </div>
+      <div>
+        <label class="design-box__theme" for="3">
+          <input class="js-input-color" id="3" type="radio" value="3" name="palette" />
+          <div class="colors__container">
+            <div class="colors colors--gray1"></div>
+            <div class="colors colors--gray2"></div>
+            <div class="colors colors--gray3"></div>
+          </div>
+        </label>
+      </div>
+    </div>
+  </fieldset>
+  <partial src="_collapsible.html" far="far" icon="fa-keyboard" text="Rellena"></partial>
+  <fieldset class="fill hidden">
+    <label class="fill__lable" for="name">Nombre completo</label>
+    <input class="fill__box js-input" type="text" id="name" name="name" placeholder="Ej: Sally Jill" required />
+    <label class="fill__lable " for="job">Puesto</label>
+    <input class="fill__box js-input" type="text" id="job" name="job" placeholder="Ej: Front-end unicorn" />
+    <label class="fill__lable" for="image">Imagen de perfil</label>
+    <div class="fill__image">
+      <button class="fill__image--button js-fill__image-btn">Añadir imagen</button>
+      <input type="file" name="" id="img-selector" class="hidden js-fill__image-upload-btn">
+      <div class="fill__image--miniature"></div>
+    </div>
+    <label class="fill__lable" for="email">Email</label>
+    <input class="fill__box js-input" type="email" id="email" name="email" placeholder="Ej: sally-hill@gmail.com"
+      required />
+    <label class="fill__lable" for="phone">Teléfono</label>
+    <input class="fill__box js-input" type="tel" id="phone" name="phone" placeholder="Ej: 555-55-55-55"
+      pattern="[0-9]{9}" required />
+    <label class="fill__lable" for="linkedin">Linkedin</label>
+    <input class="fill__box js-input" type="text" id="linkedin" name="linkedin" placeholder="Ej: sally.hill" required />
+    <label class="fill__lable" for="github">Github</label>
+    <input class="fill__box js-input" type="text" id="github" name="github" placeholder="Ej: @sally-hill" required />
+  </fieldset>
+  <partial src="_collapsible.html" far="fas" icon="fa-share-alt" text="Comparte"></partial>
+  <fieldset class="share hidden">
+    <button type="submit" class="share__btn js-share__btn filter">
+      <i class="far fa-address-card share__icon"></i>Crear tarjeta
+    </button>
+    <fieldset class="twitter hidden">
+      <h2 class="twitter__title">La tarjeta ha sido creada:</h2>
+      <a class="twitter__link js-response" href="#"></a>
+      <button class="twitter__button ">
+        <a href="" target="_blank" class="twitter__link2 js-button-twitter">
+          <i class="twitter__button--icon fab fa-twitter"></i>Compartir en Twitter
+      </button>
+    </fieldset>
+  </fieldset>
+</form>

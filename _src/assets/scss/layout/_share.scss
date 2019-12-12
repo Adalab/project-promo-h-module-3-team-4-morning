@@ -1,0 +1,82 @@
+.share {
+  border-bottom: $bottomBorder solid 1px;
+  margin-bottom: 30px;
+  padding-top: 25px;
+
+
+  &__btn {
+    background-color: $colorPrimary;
+    color: $colorButton;
+    text-transform: uppercase;
+    width: 199px;
+    height: 50px;
+    border-radius: 12px;
+    font-family: $fontPrimary;
+    font-size: 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.32);
+  }
+
+  &__icon {
+    padding-right: 9px;
+  }
+}
+
+.twitter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: $bottomBorder solid 1px;
+  padding-bottom: 30px;
+
+
+  &__title {
+    color: $colorSecondary;
+    font-size: 18px;
+    font-family: $fontPrimary;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  &__link {
+    a {
+      color: $colorPrimary;
+      font-size: 12px;
+      font-family: $fontPrimary;
+      font-weight: 600;
+    }
+
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  &__button {
+    @include buttons();
+    margin: 0 auto;
+    background: #00a0f5;
+    width: 181px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+    text-align: center;
+
+    &--icon {
+      font-size: 18px;
+      margin: auto 9.5px auto 0px;
+    }
+
+  }
+
+  &__link2 {
+    color: $colorButton;
+    font-family: $fontPrimary;
+    font-size: 14px;
+  }
+}
+
+.filter {
+  filter: grayscale(100%);
+}

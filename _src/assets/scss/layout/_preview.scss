@@ -1,0 +1,167 @@
+.preview {
+  @include center();
+  background-image: url("../images/flower.jpg");
+  background-position: 189px 401px;
+  background-clip: content-box;
+  background-repeat: round;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  // padding: 38px 35px 40px 45px;
+  min-height: 460px;
+
+  @media all and (min-width: 768px) {
+    order: 1;
+    width: 50%;
+    border-radius: 6px;
+    margin: 20px 40px 20px 0;
+  }
+
+  &__container {
+    @media all and (min-width: 768px) {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__display--img {
+    width: 240px;
+    height: 200px;
+    background: url("../images/default-profile.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__display {
+    background-color: #fff;
+    font-family: $fontCard;
+    box-shadow: 0 1px 10px grey, 0 1px 3px 0 rgba(0, 0, 0, 0.35);
+
+    &--header {
+      padding: 20px 0 10px;
+    }
+
+    &--container {
+      padding-left: 20px;
+      border-left: 5px solid $colorOption1-2;
+    }
+
+    &--title {
+      margin-bottom: 4px;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.11;
+      color: $colorOption1-1;
+      max-width: 195px;
+    }
+
+    &--subtitle {
+      font-size: 16px;
+      font-weight: normal;
+      color: $colorSecondary;
+      max-width: 195px;
+      overflow: hidden;
+    }
+  }
+
+  .preview__display--footer .menu__list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 10px;
+  }
+
+  .menu__items {
+    border-radius: 50%;
+    margin-left: 10px;
+    border: 2px solid $colorOption1-3;
+  }
+
+  .menu__links {
+    display: flex;
+    width: 25px;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    text-decoration: none;
+    color: $colorOption1-1;
+  }
+}
+
+// Clases JS //
+
+//PALETTE 1 //
+
+.palette0 {
+  .preview__display {
+    &--title {
+      color: $colorOption1-1;
+    }
+
+    &--container {
+      border-left: 5px solid $colorOption1-2;
+    }
+  }
+
+  .menu {
+    &__links {
+      color: $colorOption1-1;
+    }
+
+    &__items {
+      border: 2px solid $colorOption1-3;
+    }
+  }
+}
+
+// PALETTE 2 //
+
+.palette1 {
+  .preview__display {
+    &--title {
+      color: $colorOption2-1;
+    }
+
+    &--container {
+      border-left: 5px solid $colorOption2-2;
+    }
+  }
+
+  .menu {
+    &__links {
+      color: $colorOption2-1;
+    }
+
+    &__items {
+      border: 2px solid $colorOption2-3;
+    }
+  }
+}
+
+//PALETTE 3 //
+
+.palette2 {
+  .preview__display {
+    &--title {
+      color: $colorOption3-1;
+    }
+
+    &--container {
+      border-left: 5px solid $colorOption3-2;
+    }
+  }
+
+  .menu {
+    &__links {
+      color: $colorOption3-1;
+    }
+
+    &__items {
+      border: 2px solid $colorOption3-3;
+    }
+  }
+}
