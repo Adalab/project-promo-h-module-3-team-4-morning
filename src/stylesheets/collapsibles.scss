@@ -1,0 +1,43 @@
+.collapsible {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid $bottomBorder;
+
+  &__left {
+    display: flex;
+    align-items: center;
+
+    &--title {
+      font-size: 18px;
+      color: $colorSecondary;
+      font-family: $fontPrimary;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-left: 10px;
+    }
+
+    &--fav {
+      color: $colorPrimary;
+      font-size: 18px;
+    }
+  }
+
+  &--arrow {
+    font-size: 18px;
+    color: $colorSecondary;
+    transition: transform 0.2s ease;
+  }
+
+  &.open {
+    border-bottom: 1px solid transparent;
+
+    .collapsible--arrow {
+      transform: rotate(-180deg) translateY(50%);
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}

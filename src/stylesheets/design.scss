@@ -1,0 +1,76 @@
+.design-box {
+  color: $colorSecondary;
+  text-transform: uppercase;
+  font-family: $fontPrimary;
+  display: flex;
+  border-bottom: $bottomBorder solid 1px;
+  padding-top: 25px;
+
+  // overflow: hidden;
+  // opacity: 0;
+  // max-height: 0;
+
+  &__title {
+    font-size: 14px;
+    margin-left: 20px;
+    flex-basis: 50%;
+    font-weight: normal;
+  }
+
+  &__themes {
+    flex-basis: 50%;
+  }
+
+  &__theme {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+  }
+
+  .colors__container {
+    display: flex;
+    margin-left: 10px;
+  }
+
+  .colors {
+    width: 30px;
+    height: 25px;
+
+    &--green1 {
+      background-color: $colorOption1-1;
+    }
+
+    &--green2 {
+      background-color: $colorOption1-2;
+    }
+
+    &--green3 {
+      background-color: $colorOption1-3;
+    }
+
+    &--red1 {
+      background-color: $colorOption2-1;
+    }
+
+    &--red2 {
+      background-color: $colorOption2-2;
+    }
+
+    &--red3 {
+      background-color: $colorOption2-3;
+    }
+
+    &--gray1 {
+      background-color: $colorOption3-1;
+    }
+
+    &--gray2 {
+      background-color: $colorOption3-2;
+    }
+
+    &--gray3 {
+      background-color: $colorOption3-3;
+    }
+  }
+}
