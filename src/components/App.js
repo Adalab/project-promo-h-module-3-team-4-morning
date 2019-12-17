@@ -11,14 +11,12 @@ function App() {
   return (
     <div className="App">
       <Header />
-
       <main className="main">
         <Preview />
         <section className="input">
           <Form />
         </section>
       </main>
-
       <Footer />
       {/* 
 
