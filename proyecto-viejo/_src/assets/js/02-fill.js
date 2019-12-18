@@ -1,4 +1,26 @@
+const inputArr = document.querySelectorAll('.js-input');
+const previewArr = document.querySelectorAll('.js-preview');
+const colorIConsCard = document.querySelectorAll('.menu__items');
+const twitterBtn = document.querySelector('.twitter');
 
+
+const defaultPreviewArr = [
+  'Nombre Apellido',
+  'Front-End Developer',
+  '',
+  '',
+  '',
+  '',
+];
+
+const hrefArr = [
+  false,
+  false,
+  'mailto:',
+  'tel:+',
+  'https://www.linkedin.com/in/',
+  'https://www.github.com/',
+];
 
 function updatePreview() {
   const lsArr = [];
@@ -22,3 +44,11 @@ function updatePreview() {
   twitterBtn.classList.add('hidden');
 }
 
+function listenInputs() {
+  for (let i = 0; i < inputArr.length; i++) {
+    inputArr[i].addEventListener('keyup', handler);
+
+  }
+}
+
+listenInputs();

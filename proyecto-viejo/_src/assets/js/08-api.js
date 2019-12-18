@@ -1,3 +1,6 @@
+const responseURL = document.querySelector('.js-response');
+
+
 function sendData() {
   let inputs = Array.from(formValidation.elements);
   let json = getJSONFromInputs(inputs);
@@ -59,3 +62,5 @@ function showURL(result) {
     responseURL.innerHTML = 'ERROR:' + result.error;
   }
 }
+
+createAllowCard.addEventListener('click', loadPhoto);

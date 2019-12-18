@@ -1,4 +1,6 @@
 
+let form = document.querySelector('form');
+
 function resetForm() {
   colorInputArr[1].removeAttribute('checked');
   colorInputArr[2].removeAttribute('checked');
@@ -11,3 +13,5 @@ function resetForm() {
   profileImage.style.backgroundImage = `url(${defaultImage})`;
   profilePreview.style.backgroundImage = `url('')`;
 }
+
+resetFormBtn.addEventListener('click', resetForm);
