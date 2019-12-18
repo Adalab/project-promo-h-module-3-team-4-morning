@@ -1,5 +1,6 @@
 import React from "react";
 import "../stylesheets/mainStyle.scss";
+import Icon from "./Icon";
 
 class Preview extends React.Component {
   render() {
@@ -19,26 +20,10 @@ class Preview extends React.Component {
             <div className="preview__display--img"></div>
             <footer className="preview__display--footer menu">
               <ul className="menu__list">
-                <li className="menu__items menu__items--phone filter">
-                  <a className="menu__links js-link-phone js-preview" href="" target="_blank">
-                    <i className="far fa-envelope"></i>
-                  </a>
-                </li>
-                <li className="menu__items menu__items--email filter">
-                  <a className="menu__links js-link-email js-preview" href="" target="_blank">
-                    <i className="fas fa-mobile-alt"></i>
-                  </a>
-                </li>
-                <li className="menu__items menu__items--linkedin filter">
-                  <a className="menu__links js-link-linkedin js-preview" href="" target="_blank">
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
-                </li>
-                <li className="menu__items menu__items--github filter  ">
-                  <a className="menu__links js-link-github js-preview" href="" target="_blank">
-                    <i className="fab fa-github-alt"></i>
-                  </a>
-                </li>
+                <Icon classLi="menu__items menu__items--phone filter" classA="menu__links js-link-phone js-preview" classI="far fa-envelope" />
+                <Icon classLi="menu__items menu__items--email filter" classA="menu__links js-link-email js-preview" classI="fas fa-mobile-alt" />
+                <Icon classLi="menu__items menu__items--linkedin filter" classA="menu__links js-link-linkedin js-preview" classI="fab fa-linkedin-in" />
+                <Icon classLi="menu__items menu__items--github filter" classA="menu__links js-link-github js-preview" classI="fab fa-github-alt" />
               </ul>
             </footer>
           </article>
