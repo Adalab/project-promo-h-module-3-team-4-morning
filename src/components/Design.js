@@ -1,5 +1,6 @@
 import React from "react";
 import "../stylesheets/mainStyle.scss";
+import Palette from "./Palette";
 
 class Design extends React.Component {
   render() {
@@ -7,36 +8,9 @@ class Design extends React.Component {
       <fieldset className="design-box hidden">
         <h3 className="design-box__title">Colores</h3>
         <div className="design-box__themes">
-          <div>
-            <label className="design-box__theme" htmlFor="1">
-              <input className="js-input-color" id="1" type="radio" checked="checked" value="1" name="palette" />
-              <div className="colors__container">
-                <div className="colors colors--green1"></div>
-                <div className="colors colors--green2"></div>
-                <div className="colors colors--green3"></div>
-              </div>
-            </label>
-          </div>
-          <div>
-            <label className="design-box__theme" htmlFor="2">
-              <input className="js-input-color" id="2" type="radio" value="2" name="palette" />
-              <div className="colors__container">
-                <div className="colors colors--red1"></div>
-                <div className="colors colors--red2"></div>
-                <div className="colors colors--red3"></div>
-              </div>
-            </label>
-          </div>
-          <div>
-            <label className="design-box__theme" htmlFor="3">
-              <input className="js-input-color" id="3" type="radio" value="3" name="palette" />
-              <div className="colors__container">
-                <div className="colors colors--gray1"></div>
-                <div className="colors colors--gray2"></div>
-                <div className="colors colors--gray3"></div>
-              </div>
-            </label>
-          </div>
+          <Palette htmlFor="1" id="1" checked="checked" value="1" color1="colors colors--green1" color2="colors colors--green2" color3="colors colors--green3" />
+          <Palette htmlFor="2" id="2" value="2" color1="colors colors--red1" color2="colors colors--red2" color3="colors colors--red3" />
+          <Palette htmlFor="3" id="3" value="3" color1="colors colors--gray1" color2="colors colors--gray2" color3="colors colors--gray3" />
         </div>
       </fieldset>
     );

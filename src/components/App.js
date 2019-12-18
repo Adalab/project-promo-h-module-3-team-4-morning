@@ -13,21 +13,9 @@ function App() {
       <Header />
       <main className="main">
         <Preview />
-        <section className="input">
-          <Form />
-        </section>
+        <Form />
       </main>
       <Footer />
-      {/* 
-
-      <main class="main">
-        
-        <section class="input">
-          <partial src="_form.html"></partial>
-        </section>
-      </main>
-
-       */}
     </div>
   );
 }

@@ -8,14 +8,19 @@ import Share from "./Share";
 class Form extends React.Component {
   render() {
     return (
-      <form>
-        <Collapsible />
-        <Design />
-        <Collapsible />
-        <Fill />
-        <Collapsible />
-        <Share />
-      </form>
+      <section className="input">
+        <form>
+          <Collapsible title="Diseña" classIcon="collapsible__left--fav far fa-object-ungroup">
+            <Design />
+          </Collapsible>
+          <Collapsible title="Rellena" classIcon="collapsible__left--fav far fa-keyboard">
+            <Fill />
+          </Collapsible>
+          <Collapsible title="Comparte" classIcon="collapsible__left--fav fas fa-share-alt">
+            <Share />
+          </Collapsible>
+        </form>
+      </section>
     );
   }
 }
