@@ -1,4 +1,7 @@
 
+const colorInputArr = document.querySelectorAll('.js-input-color');
+
+
 function updatePalette() {
   let color = document.querySelector('.preview__display');
   if (colorInputArr[0].checked === true) {
@@ -19,3 +22,12 @@ function updatePalette() {
   }
   updateLocalStorage();
 }
+
+function listenColors() {
+  for (let i = 0; i < colorInputArr.length; i++) {
+    colorInputArr[i].addEventListener('click', updatePalette);
+
+  }
+}
+
+listenColors();
