@@ -4,7 +4,7 @@ import "../stylesheets/mainStyle.scss";
 class Share extends React.Component {
   render() {
     return (
-      <fieldset className="share hidden">
+      <fieldset className="share">
         <button type="submit" className="share__btn js-share__btn filter">
           <i className="far fa-address-card share__icon"></i>Crear tarjeta
         </button>

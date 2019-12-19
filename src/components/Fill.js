@@ -5,7 +5,7 @@ import Input from "./Input";
 class Fill extends React.Component {
   render() {
     return (
-      <fieldset className="fill hidden">
+      <fieldset className="fill">
         <Input htmlFor="name" type="text" text="Nombre completo" id="name" name="name" placeholder="Ej: Sally Jill" />
         <Input htmlFor="job" type="text" text="Puesto" id="job" name="job" placeholder="Ej: Front-end unicorn" />
         <label className="fill__lable" htmlFor="image">

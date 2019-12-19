@@ -1,10 +1,34 @@
 import React from "react";
 import "../stylesheets/mainStyle.scss";
+import "../stylesheets/hidden.scss"
 
 class Collapsible extends React.Component {
-  render() {
+constructor (props) {
+  super(props);
+  this.state = {
+    hidden : 'hidden'
+  }
+this.handleClick = this.handleClick.bind(this);
+}
+
+handleClick() {
+    this.setState((prevState, props) => {
+      let nextStyling;
+      if (prevState.hidden === 'hidden') {
+        nextStyling = 'open';
+      } else {
+        nextStyling = 'hidden';
+      }
+
+      return {
+        hidden: nextStyling
+      };
+    });
+  }
+
+ render() {
     return (
-      <div>
+      <div onClick={this.handleClick}>
         <legend className="collapsible">
           <div className="collapsible__left">
             <i className={this.props.classIcon}></i>
@@ -12,7 +36,9 @@ class Collapsible extends React.Component {
           </div>
           <i className="collapsible--arrow fas fa-angle-down"></i>
         </legend>
+        <div className={this.state.hidden}>
         {this.props.children}
+        </div>
       </div>
     );
   }
