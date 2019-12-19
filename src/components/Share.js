@@ -4,11 +4,11 @@ import "../stylesheets/mainStyle.scss";
 class Share extends React.Component {
   render() {
     return (
-      <fieldset className="share hidden">
+      <fieldset className="share">
         <button type="submit" className="share__btn js-share__btn filter">
           <i className="far fa-address-card share__icon"></i>Crear tarjeta
         </button>
-        <fieldset className="twitter hidden">
+        <fieldset className="twitter">
           <h2 className="twitter__title">La tarjeta ha sido creada:</h2>
           <a className="twitter__link js-response" href="#"></a>
           <button className="twitter__button ">
