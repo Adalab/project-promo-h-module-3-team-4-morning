@@ -2,28 +2,34 @@ import React from "react";
 import "../stylesheets/mainStyle.scss";
 
 class Input extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
-    this.state={
-      name:'',
-      job:'',
-      email:'',
-      phone:'',
-      linkedin:'',
-      github:''
-    }
-    this.handleInputValue=this.handleInputValue.bind(this);
+    // this.state = {
+    //   name: '',
+    //   job: '',
+    //   email: '',
+    //   phone: '',
+    //   linkedin: '',
+    //   github: ''
+    // }
+    this.handleInputValue = this.handleInputValue.bind(this);
   }
 
-  handleInputValue(ev){
-    debugger;
-    console.log(`esto es name`+ this.state.name)
-    console.log('esto es job'+ this.state.job)
-    if (ev.currentTarget.id === 'name'){
-   this.setState ( {
-     name:ev.currentTarget.value
-   });
-  }
+  handleInputValue(ev) {
+    // debugger;
+    // console.log(`esto es name` + this.state.name)
+    // console.log('esto es job' + this.state.job)
+    // if (ev.currentTarget.id === 'name') {
+    //   this.setState({
+    //     name: ev.currentTarget.value
+    //   });
+    // }
+
+    this.props.handleChange({
+      id: this.props.id,
+      value: ev.currentTarget.value
+    })
+
   }
 
 
