@@ -23,15 +23,15 @@ function Landing() {
           <ul className="menu__list">
             <MenuItem
               text="Diseña"
-              menuIcon="menu__item--fav far fa-object-ungroup"
+              className="menu__item--fav far fa-object-ungroup"
             />
             <MenuItem
               text="Rellena"
-              menuIcon="menu__item--fav far fa-keyboard"
+              className="menu__item--fav far fa-keyboard"
             />
             <MenuItem
               text="Comparte"
-              menuIcon="menu__item--fav fas fa-share-alt"
+              className="menu__item--fav fas fa-share-alt"
             />
           </ul>
         </nav>
