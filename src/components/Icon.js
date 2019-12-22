@@ -1,5 +1,5 @@
 import React from "react";
-import "../stylesheets/mainStyle.scss";
+import "../stylesheets/icons.scss";
 
 class Icon extends React.Component {
   render() {
@@ -14,3 +14,6 @@ class Icon extends React.Component {
 }
 
 export default Icon;
+
+
+// meter props type y default, por ejemplo en el href. Definir que tipo de dato espera recibir el componente.

@@ -1,0 +1,14 @@
+@import "./variables";
+@import "./mixins";
+@import "./normalize";
+
+.main {
+  @media all and (min-width: 768px) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($backgroundLanding), to($backgroundFooter));
+    background-image: linear-gradient(to bottom, $backgroundLanding, $backgroundFooter);
+    min-height: 852px;
+  }
+}
