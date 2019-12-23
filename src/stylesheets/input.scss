@@ -1,0 +1,23 @@
+@import "./variables";
+@import "./mixins";
+@import "./normalize";
+
+.fill {
+  &__lable {
+    color: $colorTertiary;
+    font-size: 14px;
+    font-family: $fontPrimary;
+    margin-bottom: 7px;
+  }
+
+  &__box {
+    height: 30px;
+    border: $placeholderBorder solid 1px;
+    font-size: 14px;
+    line-height: 20px;
+    color: $placeholderColor;
+    padding-left: 9px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+}

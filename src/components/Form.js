@@ -1,5 +1,5 @@
 import React from "react";
-import "../stylesheets/mainStyle.scss";
+import "../stylesheets/form.scss";
 import Collapsible from "./Collapsible";
 import Design from "./Design";
 import Fill from "./Fill";
@@ -8,7 +8,7 @@ import Share from "./Share";
 class Form extends React.Component {
   render() {
     return (
-      <section className="input">
+      <section className="form">
         <form>
           <Collapsible title="Diseña" classIcon="far fa-object-ungroup">
             <Design />

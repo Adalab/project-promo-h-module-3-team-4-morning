@@ -1,5 +1,5 @@
 import React from "react";
-import "../stylesheets/mainStyle.scss";
+import "../stylesheets/preview.scss";
 import Icon from "./Icon";
 
 class Preview extends React.Component {

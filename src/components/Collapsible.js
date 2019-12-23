@@ -1,5 +1,6 @@
 import React from "react";
-import "../stylesheets/mainStyle.scss";
+import "../stylesheets/collapsibles.scss";
+
 
 class Collapsible extends React.Component {
   render() {

@@ -1,0 +1,44 @@
+@import "./variables";
+@import "./mixins";
+@import "./normalize";
+
+.fill {
+  &__image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 20px;
+
+    &--button {
+      @include center();
+      @include buttons();
+      width: 140px;
+      background: $colorPrimary;
+      -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+              box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &--input {
+      display: none;
+    }
+
+    &--miniature {
+      height: 30px;
+      width: 30px;
+      border: $placeholderBorder solid 1px;
+      margin-left: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+
+.preview__icon {
+  margin-right: 8px;
+}
