@@ -6,7 +6,7 @@ class Collapsible extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hidden: 'close'
+      collapsible: 'close'
     }
     this.handleClick = this.handleClick.bind(this);
   }
@@ -14,21 +14,20 @@ class Collapsible extends React.Component {
   handleClick() {
     this.setState((prevState, props) => {
       let nextStyling;
-      if (prevState.hidden === 'close') {
-        nextStyling = '';
+      if (prevState.collapsible === 'close') {
+        nextStyling = 'open';
       } else {
         nextStyling = 'close';
       }
-
       return {
-        hidden: nextStyling
+        collapsible: nextStyling
       };
     });
   }
 
   render() {
     return (
-      <div className={this.state.hidden}>
+      <div className={this.state.collapsible}>
         <legend className="collapsible" onClick={this.handleClick}>
           <div className="collapsible__left">
             <i className={`collapsible__left--fav ${this.props.classIcon}`}></i>
