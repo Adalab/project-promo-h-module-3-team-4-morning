@@ -14,10 +14,8 @@ class App extends React.Component {
     };
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
     this.fileUploadHandler = this.fileUploadHandler.bind(this);
-
   }
   fileSelectedHandler(ev) {
-    debugger;
     let myFile = ev.target.files[0];
     this.fr.addEventListener('load', this.fileUploadHandler);
     this.fr.readAsDataURL(myFile);
@@ -28,7 +26,6 @@ class App extends React.Component {
       image: [imageData]
     });
   }
-
   render() {
     return (
       <div className="App" >
