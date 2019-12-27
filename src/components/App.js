@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
     this.fr = new FileReader();
     this.state = {
-      imageUrl: ''
+      image: ''
     };
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
     this.fileUploadHandler = this.fileUploadHandler.bind(this);

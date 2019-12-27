@@ -1,6 +1,8 @@
 import React from "react";
 import "../stylesheets/preview.scss";
 import Icon from "./Icon";
+import defaultImage from '../images/default-profile.png'
+
 
 class Preview extends React.Component {
   render() {
@@ -17,7 +19,7 @@ class Preview extends React.Component {
                 <h3 className="preview__display--subtitle js-preview-subtitle js-preview">Front-end Developer</h3>
               </div>
             </header>
-            <div className="preview__display--img" style={{ backgroundImage: `url(${this.props.image})` }}></div>
+            <div className="preview__display--img" style={{ backgroundImage: `url(${this.props.image || defaultImage})` }}></div>
             <footer className="preview__display--footer menu">
               <ul className="menu__list">
                 <Icon classLi="menu__items--phone filter" classA="js-link-phone js-preview" classI="far fa-envelope" />

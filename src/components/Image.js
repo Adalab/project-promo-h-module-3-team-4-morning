@@ -1,6 +1,7 @@
 import React from "react";
 import '../stylesheets/image.scss'
 import axios from 'axios';
+import defaultImage from '../images/default-profile.png'
 
 class Image extends React.Component {
     constructor(props) {
