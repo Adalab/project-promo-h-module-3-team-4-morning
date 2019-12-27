@@ -1,5 +1,5 @@
 import React from "react";
-import "../stylesheets/mainStyle.scss";
+import "../stylesheets/footer.scss";
 import logo from "../images/ECOME.png";
 import logoAdalab from "../images/logo-adalab.png";
 
