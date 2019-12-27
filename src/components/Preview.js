@@ -17,7 +17,7 @@ class Preview extends React.Component {
                 <h3 className="preview__display--subtitle js-preview-subtitle js-preview">Front-end Developer</h3>
               </div>
             </header>
-            <div className="preview__display--img"></div>
+            <div className="preview__display--img" style={{ backgroundImage: `url(${this.props.image})` }}></div>
             <footer className="preview__display--footer menu">
               <ul className="menu__list">
                 <Icon classLi="menu__items--phone filter" classA="js-link-phone js-preview" classI="far fa-envelope" />
