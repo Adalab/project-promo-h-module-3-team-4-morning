@@ -57,7 +57,9 @@
 }
 
 .open {
-  border-bottom: 1px solid transparent;
+  .collapsible {
+    border-bottom: 1px solid transparent;
+  }
 
   .collapsible--arrow {
     -webkit-transform: rotate(-180deg) translateY(50%);
