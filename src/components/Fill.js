@@ -1,5 +1,5 @@
 import React from "react";
-import "../stylesheets/mainStyle.scss";
+import "../stylesheets/fill.scss";
 import Input from "./Input";
 
 class Fill extends React.Component {
@@ -13,7 +13,7 @@ class Fill extends React.Component {
         </label>
         <div className="fill__image">
           <button className="fill__image--button js-fill__image-btn">Añadir imagen</button>
-          <input type="file" name="" id="img-selector" className="hidden js-fill__image-upload-btn" />
+          <input type="file" name="" id="img-selector" className="fill__image--input js-fill__image-upload-btn" />
           <div className="fill__image--miniature"></div>
         </div>
         <Input htmlFor="email" type="email" text="Email" name="email" placeholder="Ej: sally-hill@gmail.com" />

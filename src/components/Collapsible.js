@@ -1,5 +1,6 @@
 import React from "react";
-import "../stylesheets/mainStyle.scss";
+import "../stylesheets/collapsibles.scss";
+
 
 class Collapsible extends React.Component {
   render() {
@@ -7,7 +8,7 @@ class Collapsible extends React.Component {
       <div>
         <legend className="collapsible">
           <div className="collapsible__left">
-            <i className={this.props.classIcon}></i>
+            <i className={`collapsible__left--fav ${this.props.classIcon}`}></i>
             <h2 className="collapsible__left--title">{this.props.title}</h2>
           </div>
           <i className="collapsible--arrow fas fa-angle-down"></i>

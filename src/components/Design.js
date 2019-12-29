@@ -1,5 +1,5 @@
 import React from "react";
-import "../stylesheets/mainStyle.scss";
+import "../stylesheets/design.scss";
 import Palette from "./Palette";
 
 class Design extends React.Component {
