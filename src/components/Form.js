@@ -6,8 +6,6 @@ import Fill from "./Fill";
 import Share from "./Share";
 
 class Form extends React.Component {
-
-
   render() {
     return (
       <section className="form">
