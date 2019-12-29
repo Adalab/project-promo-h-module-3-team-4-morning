@@ -1,0 +1,147 @@
+@import "./variables";
+@import "./mixins";
+@import "./normalize";
+
+// .landingContainer {
+//   height: 1vh;
+// }
+
+.landing {
+  @include center();
+  flex-direction: column;
+  background-color: $backgroundLanding;
+  padding-top: 95px;
+  height: 78vh;
+
+  &__image {
+    width: 250px;
+    height: 63px;
+    margin-bottom: 35.4px;
+  }
+
+  &__title {
+    font-size: 19.2px;
+    font-family: $fontLanding;
+    font-weight: 900;
+    color: $colorPrimary;
+  }
+
+  &__text {
+    max-width: 264px;
+    text-align: center;
+    margin-bottom: 17.8px;
+    font-size: 12.8px;
+    font-weight: normal;
+    color: $colorTertiary;
+    font-family: $fontLanding;
+  }
+
+  &__menu {
+    width: 268px;
+    border: $menuBorder solid 1.6px;
+    border-radius: 4px;
+    margin-bottom: 38.6px;
+  }
+
+  &__button {
+    display: block;
+    margin-bottom: 30px;
+    background: $backgroundButton;
+    min-height: 42px;
+    width: 129px;
+    border-radius: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $fontPrimary;
+    font-size: 16px;
+    font-weight: 600;
+    color: $colorButton;
+    text-decoration-line: none;
+    text-transform: uppercase;
+  }
+}
+
+.menu {
+  &__list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+  }
+
+  &__item {
+    margin-top: 15px;
+    width: 60px;
+    height: 61px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &--fav {
+      width: 32px;
+      font-size: 22.4px;
+      color: $colorPrimary;
+      text-align: center;
+    }
+
+    &--text {
+      width: 60px;
+      font-size: 12.8px;
+      font-family: $fontPrimary;
+      color: $colorSecondary;
+      font-weight: normal;
+      text-align: center;
+    }
+  }
+}
+
+@media all and (min-width: 768px) {
+  .landing {
+    padding: 340px 0 59px 0;
+    height: 100%;
+
+    &__image {
+      width: 419px;
+      height: 105px;
+      margin-bottom: 31px;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+    &__button {
+      margin-bottom: 59px;
+    }
+
+    &__text {
+      max-width: 331px;
+      margin-bottom: 27px;
+      font-size: 16px;
+    }
+
+    &__menu {
+      //max-width: 325px;
+      width: 325px;
+      border: $menuBorder solid 2px;
+      border-radius: 5px;
+      margin-bottom: 186px;
+    }
+  }
+
+  .menu {
+    &__item {
+      //max-width: 75px;
+      width: 75px;
+
+      &--fav {
+        font-size: 28px;
+      }
+
+      &--text {
+        width: 75px;
+        font-size: 16px;
+      }
+    }
+  }
+}
