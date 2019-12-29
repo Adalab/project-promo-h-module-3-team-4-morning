@@ -1,3 +1,7 @@
+@import "./variables";
+@import "./mixins";
+@import "./normalize";
+
 .design-box {
   color: $colorSecondary;
   text-transform: uppercase;
@@ -19,66 +23,5 @@
   &__themes {
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
-  }
-
-  &__theme {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    padding-bottom: 20px;
-  }
-
-  .colors__container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-left: 10px;
-  }
-
-  .colors {
-    width: 30px;
-    height: 25px;
-
-    &--green1 {
-      background-color: $colorOption1-1;
-    }
-
-    &--green2 {
-      background-color: $colorOption1-2;
-    }
-
-    &--green3 {
-      background-color: $colorOption1-3;
-    }
-
-    &--red1 {
-      background-color: $colorOption2-1;
-    }
-
-    &--red2 {
-      background-color: $colorOption2-2;
-    }
-
-    &--red3 {
-      background-color: $colorOption2-3;
-    }
-
-    &--gray1 {
-      background-color: $colorOption3-1;
-    }
-
-    &--gray2 {
-      background-color: $colorOption3-2;
-    }
-
-    &--gray3 {
-      background-color: $colorOption3-3;
-    }
   }
 }

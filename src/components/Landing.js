@@ -21,18 +21,9 @@ function Landing() {
         </h2>
         <nav className="landing__menu">
           <ul className="menu__list">
-            <MenuItem
-              text="Diseña"
-              className="menu__item--fav far fa-object-ungroup"
-            />
-            <MenuItem
-              text="Rellena"
-              className="menu__item--fav far fa-keyboard"
-            />
-            <MenuItem
-              text="Comparte"
-              className="menu__item--fav fas fa-share-alt"
-            />
+            <MenuItem text="Diseña" className="far fa-object-ungroup" />
+            <MenuItem text="Rellena" className="far fa-keyboard" />
+            <MenuItem text="Comparte" className="fas fa-share-alt" />
           </ul>
         </nav>
         <a className="landing__button" href="./profile.html" title="Comenzar">

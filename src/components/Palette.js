@@ -1,5 +1,6 @@
 import React from "react";
-import "../stylesheets/mainStyle.scss";
+import "../stylesheets/palette.scss";
+
 
 class Palette extends React.Component {
   render() {

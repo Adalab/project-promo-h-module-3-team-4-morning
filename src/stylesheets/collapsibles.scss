@@ -1,13 +1,25 @@
+@import "./variables";
+@import "./mixins";
+@import "./normalize";
+
 .collapsible {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding-top: 10px;
   padding-bottom: 7px;
   border-bottom: 1px solid $bottomBorder;
 
   &__left {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 
     &--title {
       font-size: 18px;
@@ -27,17 +39,24 @@
   &--arrow {
     font-size: 18px;
     color: $colorSecondary;
+    -webkit-transition: -webkit-transform 0.2s ease;
+    transition: -webkit-transform 0.2s ease;
     transition: transform 0.2s ease;
+    transition: transform 0.2s ease, -webkit-transform 0.2s ease;
   }
 
   &.open {
     border-bottom: 1px solid transparent;
 
     .collapsible--arrow {
-      transform: rotate(-180deg) translateY(50%);
+      -webkit-transform: rotate(-180deg) translateY(50%);
+              transform: rotate(-180deg) translateY(50%);
     }
   }
   &:hover {
     cursor: pointer;
   }
 }
+
+
+// CREAR CLASE OPEN Y CLOSE
