@@ -4,7 +4,7 @@ import "../stylesheets/icons.scss";
 class Icon extends React.Component {
   render() {
     return (
-      <li className={`menu__items ${this.props.classLi} ${this.props.href}`}>
+      <li className={`menu__items ${this.props.classLi} ${this.props.filter === '' ? "filter" : ""}`}>
         <a className={`menu__links ${this.props.classA}`} href={this.props.href || ''} target="_blank">
           <i className={this.props.classI}></i>
         </a>

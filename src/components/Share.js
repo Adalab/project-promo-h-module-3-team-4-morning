@@ -5,7 +5,7 @@ class Share extends React.Component {
   render() {
     return (
       <fieldset className="share">
-        <button type="submit" className="share__btn js-share__btn filter">
+        <button type="submit" className={`share__btn ${this.props.colorCreate}`}>
           <i className="far fa-address-card share__icon"></i>Crear tarjeta
         </button>
         <fieldset className="twitter">

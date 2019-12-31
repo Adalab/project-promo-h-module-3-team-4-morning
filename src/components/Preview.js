@@ -22,10 +22,10 @@ class Preview extends React.Component {
             <div className="preview__display--img" style={{ backgroundImage: `url(${this.props.image || defaultImage})` }}></div>
             <footer className="preview__display--footer menu">
               <ul className="menu__list">
-                <Icon classLi="menu__items--phone" classI="far fa-envelope" href={`mailto:${this.props.email}`} href={this.props.href} />
-                <Icon classLi="menu__items--email" classI="fas fa-mobile-alt" href={`tel:+${this.props.phone}`} href={this.props.href} />
-                <Icon classLi="menu__items--linkedin" classI="fab fa-linkedin-in" href={`https://www.linkedin.com/in/${this.props.linkedin}`} href={this.props.href} />
-                <Icon classLi="menu__items--github" classI="fab fa-github-alt" href={`https://www.github.com/${this.props.github}`} href={this.props.href} />
+                <Icon classLi="menu__items--email" classI="far fa-envelope" href={`mailto:${this.props.email}`} filter={this.props.email} />
+                <Icon classLi="menu__items--phone" classI="fas fa-mobile-alt" href={`tel:+${this.props.phone}`} filter={this.props.phone} />
+                <Icon classLi="menu__items--linkedin" classI="fab fa-linkedin-in" href={`https://www.linkedin.com/in/${this.props.linkedin}`} filter={this.props.linkedin} />
+                <Icon classLi="menu__items--github" classI="fab fa-github-alt" href={`https://www.github.com/${this.props.github}`} filter={this.props.github} />
               </ul>
             </footer>
           </article>

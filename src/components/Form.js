@@ -18,7 +18,7 @@ class Form extends React.Component {
             <Fill image={this.props.image} fileSelectedHandler={this.props.fileSelectedHandler} handleChange={this.props.handleChange} name={this.props.name} job={this.props.job} phone={this.props.phone} email={this.props.email} linkedin={this.props.linkedin} github={this.props.github} />
           </Collapsible>
           <Collapsible title="Comparte" classIcon="fas fa-share-alt">
-            <Share />
+            <Share colorCreate={this.props.colorCreate} />
           </Collapsible>
         </form>
       </section>
