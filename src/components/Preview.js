@@ -9,7 +9,7 @@ class Preview extends React.Component {
     return (
       <section className="preview">
         <div className="preview__container">
-          <button className="preview__reset">
+          <button onClick={this.props.resetHandler} className="preview__reset">
             <i className="far fa-trash-alt preview__icon"></i>reset
           </button>
           <article className="preview__display">

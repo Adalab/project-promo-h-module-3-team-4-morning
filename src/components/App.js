@@ -21,8 +21,22 @@ class App extends React.Component {
     };
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
     this.fileUploadHandler = this.fileUploadHandler.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.resetHandler = this.resetHandler.bind(this);
   }
+  resetHandler() {
+    this.setState({
+      image: '',
+      name: '',
+      job: '',
+      email: '',
+      phone: '',
+      linkedin: '',
+      github: '',
+    });
+    this.updateFilterCreate();
+  }
+
   fileSelectedHandler(ev) {
     let myFile = ev.target.files[0];
     this.fr.addEventListener('load', this.fileUploadHandler);
@@ -40,6 +54,7 @@ class App extends React.Component {
       let nextStyling;
       if (!!prevState.name === true && !!prevState.job === true && !!prevState.email === true && !!prevState.linkedin === true && !!prevState.github === true && !!prevState.phone === true && prevState.image !== '') {
         nextStyling = '';
+
       } else {
         nextStyling = 'filter';
       }
@@ -49,7 +64,7 @@ class App extends React.Component {
     });
 
   }
-  handleChange(ev) {
+  handleInputChange(ev) {
     const id = ev.target.id;
     const value = ev.target.value;
     console.log(ev.target);
@@ -64,8 +79,8 @@ class App extends React.Component {
       <div className="App" >
         <Header />
         <main className="main">
-          <Preview image={this.state.image} name={this.state.name} job={this.state.job} phone={this.state.phone} email={this.state.email} linkedin={this.state.linkedin} github={this.state.github} />
-          <Form image={this.state.image} fileSelectedHandler={this.fileSelectedHandler} handleChange={this.handleChange} name={this.state.name} job={this.state.job} phone={this.state.phone} email={this.state.email} linkedin={this.state.linkedin} github={this.state.github} colorCreate={this.state.create} />
+          <Preview image={this.state.image} name={this.state.name} job={this.state.job} phone={this.state.phone} email={this.state.email} linkedin={this.state.linkedin} github={this.state.github} resetHandler={this.resetHandler} />
+          <Form image={this.state.image} fileSelectedHandler={this.fileSelectedHandler} handleChange={this.handleInputChange} name={this.state.name} job={this.state.job} phone={this.state.phone} email={this.state.email} linkedin={this.state.linkedin} github={this.state.github} colorCreate={this.state.create} />
         </main>
         <Footer />
       </div>
