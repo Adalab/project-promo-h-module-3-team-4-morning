@@ -79,8 +79,26 @@ class App extends React.Component {
       <div className="App" >
         <Header />
         <main className="main">
-          <Preview image={this.state.image} name={this.state.name} job={this.state.job} phone={this.state.phone} email={this.state.email} linkedin={this.state.linkedin} github={this.state.github} resetHandler={this.resetHandler} />
-          <Form image={this.state.image} fileSelectedHandler={this.fileSelectedHandler} handleChange={this.handleInputChange} name={this.state.name} job={this.state.job} phone={this.state.phone} email={this.state.email} linkedin={this.state.linkedin} github={this.state.github} colorCreate={this.state.create} />
+          <Preview
+            name={this.state.name}
+            job={this.state.job}
+            image={this.state.image}
+            phone={this.state.phone}
+            email={this.state.email}
+            linkedin={this.state.linkedin}
+            github={this.state.github}
+            resetHandler={this.resetHandler} />
+          <Form
+            image={this.state.image}
+            name={this.state.name}
+            job={this.state.job}
+            phone={this.state.phone}
+            email={this.state.email}
+            linkedin={this.state.linkedin}
+            github={this.state.github}
+            fileSelectedHandler={this.fileSelectedHandler}
+            handleChange={this.handleInputChange}
+            colorCreate={this.state.create} />
         </main>
         <Footer />
       </div>

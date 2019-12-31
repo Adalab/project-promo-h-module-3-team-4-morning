@@ -15,10 +15,22 @@ class Form extends React.Component {
             <Design />
           </Collapsible>
           <Collapsible title="Rellena" classIcon="far fa-keyboard">
-            <Fill image={this.props.image} fileSelectedHandler={this.props.fileSelectedHandler} handleChange={this.props.handleChange} name={this.props.name} job={this.props.job} phone={this.props.phone} email={this.props.email} linkedin={this.props.linkedin} github={this.props.github} />
+            <Fill
+              name={this.props.name}
+              job={this.props.job}
+              image={this.props.image}
+              phone={this.props.phone}
+              email={this.props.email}
+              linkedin={this.props.linkedin}
+              github={this.props.github}
+              fileSelectedHandler={this.props.fileSelectedHandler}
+              handleChange={this.props.handleChange}
+            />
           </Collapsible>
           <Collapsible title="Comparte" classIcon="fas fa-share-alt">
-            <Share colorCreate={this.props.colorCreate} />
+            <Share
+              colorCreate={this.props.colorCreate}
+            />
           </Collapsible>
         </form>
       </section>

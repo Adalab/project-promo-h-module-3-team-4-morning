@@ -10,9 +10,9 @@ class Share extends React.Component {
         </button>
         <fieldset className="twitter">
           <h2 className="twitter__title">La tarjeta ha sido creada:</h2>
-          <a className="twitter__link js-response" href=""></a>
+          <a className="twitter__link" href=""></a>
           <button className="twitter__button ">
-            <a href="" target="_blank" className="twitter__link2 js-button-twitter" />
+            <a href="" target="_blank" className="twitter__link2" />
             <i className="twitter__button--icon fab fa-twitter"></i>Compartir en Twitter
           </button>
         </fieldset>
