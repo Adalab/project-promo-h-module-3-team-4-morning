@@ -6,7 +6,6 @@ import Fill from "./Fill";
 import Share from "./Share";
 
 class Form extends React.Component {
-
   render() {
     return (
       <section className="form">
@@ -15,7 +14,7 @@ class Form extends React.Component {
             <Design />
           </Collapsible>
           <Collapsible title="Rellena" classIcon="far fa-keyboard">
-            <Fill image={this.props.image} fileSelectedHandler={this.props.fileSelectedHandler} />
+            <Fill name={this.props.name} job={this.props.job} email={this.props.email} phone={this.props.phone} linkedin={this.props.linkedin} github={this.props.github} handleInputChange={this.props.handleInputChange} image={this.props.image} fileSelectedHandler={this.props.fileSelectedHandler} />
           </Collapsible>
           <Collapsible title="Comparte" classIcon="fas fa-share-alt">
             <Share />
