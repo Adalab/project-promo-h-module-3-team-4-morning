@@ -5,10 +5,10 @@ class Share extends React.Component {
   render() {
     return (
       <fieldset className="share">
-        <button type="submit" className={`share__btn ${this.props.colorCreate}`}>
+        <button onClick={this.props.handleTwitter} type="submit" className={`share__btn ${this.props.colorCreate}`}>
           <i className="far fa-address-card share__icon"></i>Crear tarjeta
         </button>
-        <fieldset className="twitter">
+        <fieldset className={`twitter ${this.props.twitter}`}>
           <h2 className="twitter__title">La tarjeta ha sido creada:</h2>
           <a className="twitter__link" href=""></a>
           <button className="twitter__button ">
@@ -16,7 +16,7 @@ class Share extends React.Component {
             <i className="twitter__button--icon fab fa-twitter"></i>Compartir en Twitter
           </button>
         </fieldset>
-      </fieldset>
+      </fieldset >
     );
   }
 }

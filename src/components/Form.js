@@ -12,7 +12,11 @@ class Form extends React.Component {
       <section className="form">
         <form>
           <Collapsible title="Diseña" classIcon="far fa-object-ungroup">
-            <Design />
+            <Design
+              paletteInputHandler={this.props.paletteInputHandler}
+              value={this.props.palette}
+              checked={this.props.checked}
+            />
           </Collapsible>
           <Collapsible title="Rellena" classIcon="far fa-keyboard">
             <Fill
@@ -30,6 +34,8 @@ class Form extends React.Component {
           <Collapsible title="Comparte" classIcon="fas fa-share-alt">
             <Share
               colorCreate={this.props.colorCreate}
+              handleTwitter={this.props.handleTwitter}
+              twitter={this.props.twitter}
             />
           </Collapsible>
         </form>

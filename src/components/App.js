@@ -17,12 +17,18 @@ class App extends React.Component {
       phone: '',
       linkedin: '',
       github: '',
-      create: 'filter'
+      palette: '1',
+      create: 'filter',
+      twitter: 'hidden'
     };
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
     this.fileUploadHandler = this.fileUploadHandler.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
+    this.paletteInputHandler = this.paletteInputHandler.bind(this);
+    this.handleTwitter = this.handleTwitter.bind(this);
+
+
   }
   resetHandler() {
     this.setState({
@@ -33,8 +39,13 @@ class App extends React.Component {
       phone: '',
       linkedin: '',
       github: '',
+      palette: '1',
+      checked: '',
+      twitter: 'hidden'
     });
     this.updateFilterCreate();
+    this.handleTwitter();
+
   }
 
   fileSelectedHandler(ev) {
@@ -48,6 +59,8 @@ class App extends React.Component {
       image: [imageData]
     });
     this.updateFilterCreate();
+    this.handleTwitter();
+
   }
   updateFilterCreate() {
     this.setState((prevState, props) => {
@@ -62,18 +75,37 @@ class App extends React.Component {
         create: nextStyling
       };
     });
+  }
+  handleTwitter() {
+    this.setState((prevState, props) => {
+      let nextStyling;
+      if (!!prevState.name === true && !!prevState.job === true && !!prevState.email === true && !!prevState.linkedin === true && !!prevState.github === true && !!prevState.phone === true && prevState.image !== '') {
+        nextStyling = '';
 
+      } else {
+        nextStyling = 'hidden';
+      }
+      return {
+        twitter: nextStyling
+      };
+    });
   }
   handleInputChange(ev) {
     const id = ev.target.id;
     const value = ev.target.value;
-    console.log(ev.target);
     this.setState({
       [id]: value,
     });
     this.updateFilterCreate();
-  }
+    this.handleTwitter();
 
+  }
+  paletteInputHandler(ev) {
+    const value = ev.target.value;
+    this.setState({
+      palette: value
+    });
+  }
   render() {
     return (
       <div className="App" >
@@ -87,7 +119,9 @@ class App extends React.Component {
             email={this.state.email}
             linkedin={this.state.linkedin}
             github={this.state.github}
-            resetHandler={this.resetHandler} />
+            palette={this.state.palette}
+            resetHandler={this.resetHandler}
+          />
           <Form
             image={this.state.image}
             name={this.state.name}
@@ -98,7 +132,14 @@ class App extends React.Component {
             github={this.state.github}
             fileSelectedHandler={this.fileSelectedHandler}
             handleChange={this.handleInputChange}
-            colorCreate={this.state.create} />
+            colorCreate={this.state.create}
+            paletteInputHandler={this.paletteInputHandler}
+            palette={this.state.palette}
+            checked={this.state.checked}
+            handleTwitter={this.handleTwitter}
+            twitter={this.state.twitter}
+          />
+
         </main>
         <Footer />
       </div>

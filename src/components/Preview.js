@@ -12,7 +12,7 @@ class Preview extends React.Component {
           <button onClick={this.props.resetHandler} className="preview__reset">
             <i className="far fa-trash-alt preview__icon"></i>reset
           </button>
-          <article className="preview__display">
+          <article className={`preview__display palette${this.props.palette}`}>
             <header className="preview__display--header">
               <div className="preview__display--container">
                 <h3 className="preview__display--title ">{this.props.name || `Nombre Apellido`}</h3>

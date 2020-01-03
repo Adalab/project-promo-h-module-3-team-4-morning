@@ -3,22 +3,7 @@ import "../stylesheets/design.scss";
 import Palette from "./Palette";
 
 class Design extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      1: 'checked',
-      2: '',
-      3: ''
-    };
-    this.paletteInputHandler = this.paletteInputHandler.bind(this);
-  }
-  paletteInputHandler(ev) {
-    console.log(ev.target.value);
-    const value = ev.target.value;
-    this.setState({
-      [value]: 'checked'
-    });
-  }
+
   render() {
     return (
       <fieldset className="design-box">
@@ -27,26 +12,29 @@ class Design extends React.Component {
           <Palette
             htmlFor="1"
             value="1"
+            checked={this.props.checked || 'checked'}
             color1="colors colors--green1"
             color2="colors colors--green2"
             color3="colors colors--green3"
-            paletteInputHandler={this.paletteInputHandler}
+            paletteInputHandler={this.props.paletteInputHandler}
           />
           <Palette
             htmlFor="2"
             value="2"
+            checked={this.props.checked}
             color1="colors colors--red1"
             color2="colors colors--red2"
             color3="colors colors--red3"
-            paletteInputHandler={this.paletteInputHandler}
+            paletteInputHandler={this.props.paletteInputHandler}
           />
           <Palette
             htmlFor="3"
             value="3"
+            checked={this.props.checked}
             color1="colors colors--gray1"
             color2="colors colors--gray2"
             color3="colors colors--gray3"
-            paletteInputHandler={this.paletteInputHandler}
+            paletteInputHandler={this.props.paletteInputHandler}
           />
         </div>
       </fieldset>
