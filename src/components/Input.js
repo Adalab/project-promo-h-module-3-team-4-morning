@@ -8,7 +8,7 @@ class Input extends React.Component {
         <label className="fill__lable" htmlFor={this.props.htmlFor}>
           {this.props.text}
         </label>
-        <input onChange={this.props.handleInputChange} className="fill__box js-input" type={this.props.type} id={this.props.htmlFor} name={this.props.name} placeholder={this.props.placeholder} pattern={this.props.pattern} value={this.props.value} required />
+        <input onChange={this.props.handleInputChange} className="fill__box" type={this.props.type} id={this.props.htmlFor} name={this.props.name} placeholder={this.props.placeholder} pattern={this.props.pattern} value={this.props.value} required />
         <p>{this.props.value}</p>
       </div>
     );

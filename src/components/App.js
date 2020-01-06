@@ -50,7 +50,7 @@ class App extends React.Component {
         <Header />
         <main className="main">
           <Preview image={this.state.image} name={this.state.name} job={this.state.job} email={this.state.email} phone={this.state.phone} linkedin={this.state.linkedin} github={this.state.github} />
-          <Form handleInputChange={this.handleInputChange} name={this.state.name} job={this.state.job} email={this.state.email} phone={this.state.phone} linkedin={this.state.linkedin} github={this.state.github} image={this.state.image} fileSelectedHandler={this.fileSelectedHandler} c />
+          <Form handleInputChange={this.handleInputChange} name={this.state.name} job={this.state.job} email={this.state.email} phone={this.state.phone} linkedin={this.state.linkedin} github={this.state.github} image={this.state.image} fileSelectedHandler={this.fileSelectedHandler} />
         </main>
         <Footer />
       </div>
