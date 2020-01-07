@@ -83,6 +83,7 @@ class App extends React.Component {
         nextStyling = '';
 
       } else {
+        // alert('Por favor, complete el formulario');
         nextStyling = 'hidden';
       }
       return {
