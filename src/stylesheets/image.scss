@@ -15,7 +15,7 @@
       width: 140px;
       background: $colorPrimary;
       -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
-              box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
 
       &:hover {
         cursor: pointer;
@@ -37,7 +37,6 @@
     }
   }
 }
-
 
 .preview__icon {
   margin-right: 8px;

@@ -1,9 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../stylesheets/landing.scss";
-import "../stylesheets/mixins.scss";
-import "../stylesheets/variables.scss";
-import logo from "../images/logo.svg";
-import Footer from "./Footer";
 import MenuItem from "./LandingMenuItem";
 
 function Landing() {
@@ -26,12 +23,10 @@ function Landing() {
             <MenuItem text="Comparte" className="fas fa-share-alt" />
           </ul>
         </nav>
-        <a className="landing__button" href="./profile.html" title="Comenzar">
+        <Link className="landing__button" to="/create-card" title="Comenzar">
           Comenzar
-        </a>
+        </Link>
       </main>
-
-      <Footer />
     </div>
   );
 }

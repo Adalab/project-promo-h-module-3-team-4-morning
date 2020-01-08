@@ -10,7 +10,6 @@ class Design extends React.Component {
         <div className="design-box__themes">
           <Palette
             htmlFor="1"
-            id="1"
             checked="checked"
             value="1"
             color1="colors colors--green1"
@@ -19,7 +18,6 @@ class Design extends React.Component {
           />
           <Palette
             htmlFor="2"
-            id="2"
             value="2"
             color1="colors colors--red1"
             color2="colors colors--red2"
@@ -27,7 +25,6 @@ class Design extends React.Component {
           />
           <Palette
             htmlFor="3"
-            id="3"
             value="3"
             color1="colors colors--gray1"
             color2="colors colors--gray2"

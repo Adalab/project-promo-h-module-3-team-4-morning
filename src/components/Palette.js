@@ -7,7 +7,7 @@ class Palette extends React.Component {
     return (
       <div>
         <label className="design-box__theme" htmlFor={this.props.htmlFor}>
-          <input className="js-input-color" id={this.props.id} type="radio" checked={this.props.checked} value={this.props.value} name="palette" />
+          <input className="js-input-color" id={this.props.htmlFor} type="radio" checked={this.props.checked} value={this.props.value} name="palette" />
           <div className="colors__container">
             <div className={this.props.color1}></div>
             <div className={this.props.color2}></div>
