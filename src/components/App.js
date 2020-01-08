@@ -4,6 +4,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Preview from "./Preview";
 import Form from "./Form";
+import localStorage from '../localStorage/'
+
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class App extends React.Component {
       name: "",
       job: "",
       email: "",
-      phone: " ",
+      phone: "",
       linkedin: "",
       github: "",
       palette: '1',
@@ -24,15 +26,26 @@ class App extends React.Component {
     this.fileUploadHandler = this.fileUploadHandler.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.paletteHandler = this.paletteHandler.bind(this);
+    this.resetHandler = this.resetHandler.bind(this);
   }
-
-
-
 
   paletteHandler(ev) {
     const id = ev.target.id
     this.setState({
       palette: id,
+    });
+  }
+
+  resetHandler() {
+    this.setState({
+      image: "",
+      name: "",
+      job: "",
+      email: "",
+      phone: "",
+      linkedin: "",
+      github: "",
+      palette: '1'
     });
   }
 
@@ -51,7 +64,6 @@ class App extends React.Component {
   handleInputChange(ev) {
     const id = ev.target.id;
     const value = ev.target.value;
-
     this.setState({
       [id]: value
     });
@@ -62,7 +74,7 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <main className="main">
-          <Preview palette={this.state.palette} image={this.state.image} name={this.state.name} job={this.state.job} email={this.state.email} phone={this.state.phone} linkedin={this.state.linkedin} github={this.state.github} />
+          <Preview resetHandler={this.resetHandler} palette={this.state.palette} image={this.state.image} name={this.state.name} job={this.state.job} email={this.state.email} phone={this.state.phone} linkedin={this.state.linkedin} github={this.state.github} />
           <Form paletteHandler={this.paletteHandler} palette={this.state.palette} handleInputChange={this.handleInputChange} name={this.state.name} job={this.state.job} email={this.state.email} phone={this.state.phone} linkedin={this.state.linkedin} github={this.state.github} image={this.state.image} fileSelectedHandler={this.fileSelectedHandler} />
         </main>
         <Footer />

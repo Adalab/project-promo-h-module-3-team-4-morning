@@ -8,7 +8,7 @@ class Preview extends React.Component {
     return (
       <section className="preview">
         <div className="preview__container">
-          <button className="preview__reset">
+          <button onClick={this.props.resetHandler} className="preview__reset">
             <i className="far fa-trash-alt preview__icon"></i>reset
           </button>
           <article className={`preview__display palette${this.props.palette}`}>
@@ -21,10 +21,10 @@ class Preview extends React.Component {
             <div className="preview__display--img" style={{ backgroundImage: `url(${this.props.image || defaultImage})` }}></div>
             <footer className="preview__display--footer menu">
               <ul className="menu__list">
-                <Icon href={`mailto:${this.props.email}`} classLi="menu__items--email filter" classI="far fa-envelope" />
-                <Icon href={`tel:+${this.props.phone}`} classI="fas fa-mobile-alt" classLi="menu__items--phone filter" />
-                <Icon href={`https://www.linkedin.com/in/${this.props.linkedin}`} classLi="menu__items--linkedin filter" classI="fab fa-linkedin-in" />
-                <Icon href={`https://www.github.com/${this.props.github}`} classLi="menu__items--github filter" classI="fab fa-github-alt" />
+                <Icon href={`mailto:${this.props.email}`} classLi={`menu__items--email ${this.props.email ? '' : 'filter'}`} classI="far fa-envelope" />
+                <Icon href={`tel:+${this.props.phone}`} classI="fas fa-mobile-alt" classLi={`menu__items--phone ${this.props.phone ? '' : 'filter'}`} />
+                <Icon href={`https://www.linkedin.com/in/${this.props.linkedin}`} classLi={`menu__items--linkedin ${this.props.linkedin ? '' : 'filter'}`} classI="fab fa-linkedin-in" />
+                <Icon href={`https://www.github.com/${this.props.github}`} classLi={`menu__items--github ${this.props.github ? '' : 'filter'}`} classI="fab fa-github-alt" />
               </ul>
             </footer>
           </article>
