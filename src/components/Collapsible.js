@@ -6,19 +6,29 @@ class Collapsible extends React.Component {
     super(props);
 
     this.state = {
-      closed: true,
+      collapsible: "closed",
     };
     this.handleClose = this.handleClose.bind(this);
   }
 
   handleClose() {
-    console.log("abrir y cerrar", this.state);
-    // this.setState({ closed: ev.target.prevState });
+    // console.log("abrir y cerrar", this.state);
+    this.setState((prevState, props) => {
+      let nextStyling;
+      if (prevState.collapsible === "closed") {
+        nextStyling = "open";
+      } else {
+        nextStyling = "closed";
+      }
+      return {
+        collapsible: nextStyling,
+      };
+    });
   }
 
   render() {
     return (
-      <div>
+      <div className={this.state.collapsible}>
         <legend className="collapsible" onClick={this.handleClose}>
           <div className="collapsible__left">
             <i className={`collapsible__left--fav ${this.props.classIcon}`}></i>
@@ -26,7 +36,7 @@ class Collapsible extends React.Component {
           </div>
           <i className="collapsible--arrow fas fa-angle-down "></i>
         </legend>
-        <div className="collapsibleWindow closed">{this.props.children}</div>
+        <div className="collapsible--window">{this.props.children}</div>
       </div>
     );
   }

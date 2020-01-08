@@ -45,14 +45,14 @@
     transition: transform 0.2s ease, -webkit-transform 0.2s ease;
   }
 
-  &.open {
-    border-bottom: 1px solid transparent;
+  // &.open {
+  //   border-bottom: 1px solid transparent;
 
-    .collapsible--arrow {
-      -webkit-transform: rotate(-180deg) translateY(50%);
-      transform: rotate(-180deg) translateY(50%);
-    }
-  }
+  //   .collapsible--arrow {
+  //     -webkit-transform: rotate(-180deg) translateY(50%);
+  //     transform: rotate(-180deg) translateY(50%);
+  //   }
+  // }
   &:hover {
     cursor: pointer;
   }
@@ -61,8 +61,21 @@
 // CREAR CLASE OPEN Y CLOSE
 
 .closed {
-  display: none;
+  .collapsible--window {
+    display: none;
+  }
+  .collapsible--arrow {
+    transform: rotate(0deg);
+  }
 }
-.closedArrow {
-  transform: rotate(180deg);
+
+.open {
+  .collapsible {
+    border-bottom: 1px solid transparent;
+  }
+
+  .collapsible--arrow {
+    -webkit-transform: rotate(-180deg) translateY(50%);
+    transform: rotate(-180deg) translateY(50%);
+  }
 }
