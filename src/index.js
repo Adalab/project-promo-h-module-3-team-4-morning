@@ -1,7 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { HashRouter } from "react-router-dom";
 import App from "./components/App";
+
 // import Landing from "./components/Landing";
 
-ReactDOM.render(<App />, document.getElementById("root"));
-// ReactDOM.render(<Landing />, document.getElementById("root"));
+ReactDOM.render(
+  <HashRouter>
+    <App />
+  </HashRouter>,
+  document.getElementById("root"),
+);
