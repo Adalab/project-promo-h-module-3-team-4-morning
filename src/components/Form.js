@@ -11,7 +11,7 @@ class Form extends React.Component {
       <section className="form">
         <form>
           <Collapsible title="Diseña" classIcon="far fa-object-ungroup">
-            <Design />
+            <Design className="design" />
           </Collapsible>
           <Collapsible title="Rellena" classIcon="far fa-keyboard">
             <Fill />

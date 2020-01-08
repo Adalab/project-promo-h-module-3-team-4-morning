@@ -5,7 +5,7 @@ import Palette from "./Palette";
 class Design extends React.Component {
   render() {
     return (
-      <fieldset className="design-box">
+      <fieldset className="design-box closed">
         <h3 className="design-box__title">Colores</h3>
         <div className="design-box__themes">
           <Palette

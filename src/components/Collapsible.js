@@ -6,7 +6,10 @@ class Collapsible extends React.Component {
     super(props);
 
     this.state = {
-      collapsible: "closed",
+      collapsible: "",
+      design: "opened",
+      fill: "closed",
+      share: "closed",
     };
     this.handleClose = this.handleClose.bind(this);
   }
@@ -22,6 +25,9 @@ class Collapsible extends React.Component {
       }
       return {
         collapsible: nextStyling,
+        design: nextStyling,
+        fill: nextStyling,
+        share: nextStyling,
       };
     });
   }
