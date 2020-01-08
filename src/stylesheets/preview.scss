@@ -13,7 +13,7 @@
   line-height: 1.67;
   color: $colorSecondary;
   -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
   margin-bottom: 20px;
 }
 
@@ -25,21 +25,21 @@
   background-repeat: round;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   position: relative;
   min-height: 460px;
 
   @media all and (min-width: 768px) {
     -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    -ms-flex-order: 1;
+    order: 1;
     width: 50%;
     border-radius: 6px;
     margin: 20px 40px 20px 0;
@@ -51,13 +51,14 @@
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
     @media all and (min-width: 768px) {
       position: absolute;
       top: 50%;
       -webkit-transform: translateY(-50%);
-              transform: translateY(-50%);
+      transform: translateY(-50%);
     }
   }
 
@@ -74,7 +75,7 @@
     background-color: #fff;
     font-family: $fontCard;
     -webkit-box-shadow: 0 1px 10px grey, 0 1px 3px 0 rgba(0, 0, 0, 0.35);
-            box-shadow: 0 1px 10px grey, 0 1px 3px 0 rgba(0, 0, 0, 0.35);
+    box-shadow: 0 1px 10px grey, 0 1px 3px 0 rgba(0, 0, 0, 0.35);
 
     &--header {
       padding: 20px 0 10px;
@@ -102,10 +103,10 @@
       overflow: hidden;
     }
   }
- }
+}
 
 
-.palette0 {
+.palette1 {
   .preview__display {
     &--title {
       color: $colorOption1-1;
@@ -127,7 +128,7 @@
   }
 }
 
-.palette1 {
+.palette2 {
   .preview__display {
     &--title {
       color: $colorOption2-1;
@@ -150,7 +151,7 @@
 }
 
 
-.palette2 {
+.palette3 {
   .preview__display {
     &--title {
       color: $colorOption3-1;

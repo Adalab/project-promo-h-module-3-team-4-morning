@@ -17,12 +17,25 @@ class App extends React.Component {
       phone: " ",
       linkedin: "",
       github: "",
+      palette: '1',
       shareButton: "filter"
     };
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
     this.fileUploadHandler = this.fileUploadHandler.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.paletteHandler = this.paletteHandler.bind(this);
   }
+
+
+
+
+  paletteHandler(ev) {
+    const id = ev.target.id
+    this.setState({
+      palette: id,
+    });
+  }
+
   fileSelectedHandler(ev) {
     let myFile = ev.target.files[0];
     this.fr.addEventListener("load", this.fileUploadHandler);
@@ -49,8 +62,8 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <main className="main">
-          <Preview image={this.state.image} name={this.state.name} job={this.state.job} email={this.state.email} phone={this.state.phone} linkedin={this.state.linkedin} github={this.state.github} />
-          <Form handleInputChange={this.handleInputChange} name={this.state.name} job={this.state.job} email={this.state.email} phone={this.state.phone} linkedin={this.state.linkedin} github={this.state.github} image={this.state.image} fileSelectedHandler={this.fileSelectedHandler} />
+          <Preview palette={this.state.palette} image={this.state.image} name={this.state.name} job={this.state.job} email={this.state.email} phone={this.state.phone} linkedin={this.state.linkedin} github={this.state.github} />
+          <Form paletteHandler={this.paletteHandler} palette={this.state.palette} handleInputChange={this.handleInputChange} name={this.state.name} job={this.state.job} email={this.state.email} phone={this.state.phone} linkedin={this.state.linkedin} github={this.state.github} image={this.state.image} fileSelectedHandler={this.fileSelectedHandler} />
         </main>
         <Footer />
       </div>
