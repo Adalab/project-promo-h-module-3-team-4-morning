@@ -21,7 +21,7 @@ class Share extends React.Component {
   render() {
     return (
       <fieldset className="share">
-        <button onClick={this.props.handleFetch} type="submit" className="share__btn ">
+        <button onClick={this.props.handleFetch} type="submit" className={`share__btn ${this.props.shareValue}`}>
           <i className="far fa-address-card share__icon"></i>Crear tarjeta
         </button>
         <fieldset className={`twitter `}>
@@ -32,7 +32,7 @@ class Share extends React.Component {
             <i className="twitter__button--icon fab fa-twitter"></i>Compartir en Twitter
           </button>
         </fieldset>
-      </fieldset>
+      </fieldset >
     );
   }
 }

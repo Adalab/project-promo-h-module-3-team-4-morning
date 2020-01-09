@@ -45,27 +45,18 @@
     transition: transform 0.2s ease, -webkit-transform 0.2s ease;
   }
 
-  // &.open {
-  //   border-bottom: 1px solid transparent;
-
-  //   .collapsible--arrow {
-  //     -webkit-transform: rotate(-180deg) translateY(50%);
-  //     transform: rotate(-180deg) translateY(50%);
-  //   }
-  // }
   &:hover {
     cursor: pointer;
   }
 }
-
-// CREAR CLASE OPEN Y CLOSE
 
 .closed {
   .collapsible--window {
     display: none;
   }
   .collapsible--arrow {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
 }
 

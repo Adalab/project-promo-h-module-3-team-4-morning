@@ -31,6 +31,7 @@ class App extends React.Component {
     this.paletteHandler = this.paletteHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
     this.handleFetch = this.handleFetch.bind(this);
+    this.changeColorBtn = this.changeColorBtn.bind(this);
   }
 
   paletteHandler(ev) {
@@ -52,6 +53,7 @@ class App extends React.Component {
       palette: "1",
       url: ''
     });
+    this.changeColorBtn();
   }
 
   sendRequest(json) {
@@ -90,6 +92,7 @@ class App extends React.Component {
     this.setState({
       photo: imageData,
     });
+    this.changeColorBtn();
   }
 
   handleInputChange(ev) {
@@ -97,6 +100,21 @@ class App extends React.Component {
     const value = ev.target.value;
     this.setState({
       [id]: value,
+    });
+    this.changeColorBtn();
+  }
+
+  changeColorBtn() {
+    this.setState((prevState, props) => {
+      let newStyle;
+      if (!!prevState.name === true && !!prevState.job === true && !!prevState.email === true && !!prevState.phone === true && !!prevState.linkedin === true && !!prevState.github === true && !!prevState.photo === true) {
+        newStyle = "";
+      } else {
+        newStyle = "filter";
+      }
+      return {
+        shareButton: newStyle
+      };
     });
   }
 
@@ -138,9 +156,9 @@ class App extends React.Component {
                     github={this.state.github}
                     photo={this.state.photo}
                     fileSelectedHandler={this.fileSelectedHandler}
-                    fetchFunction={this.fetchFunction}
                     handleFetch={this.handleFetch}
                     url={this.state.url}
+                    shareValue={this.state.shareButton}
                   />
                 </main>
               </>
