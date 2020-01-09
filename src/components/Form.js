@@ -11,26 +11,13 @@ class Form extends React.Component {
       <section className="form">
         <form>
           <Collapsible title="Diseña" classIcon="far fa-object-ungroup">
-            <Design
-              paletteHandler={this.props.paletteHandler}
-              palette={this.props.palette}
-            />
+            <Design paletteHandler={this.props.paletteHandler} palette={this.props.palette} />
           </Collapsible>
           <Collapsible title="Rellena" classIcon="far fa-keyboard">
-            <Fill
-              name={this.props.name}
-              job={this.props.job}
-              email={this.props.email}
-              phone={this.props.phone}
-              linkedin={this.props.linkedin}
-              github={this.props.github}
-              handleInputChange={this.props.handleInputChange}
-              image={this.props.image}
-              fileSelectedHandler={this.props.fileSelectedHandler}
-            />
+            <Fill name={this.props.name} job={this.props.job} email={this.props.email} phone={this.props.phone} linkedin={this.props.linkedin} github={this.props.github} handleInputChange={this.props.handleInputChange} image={this.props.image} fileSelectedHandler={this.props.fileSelectedHandler} />
           </Collapsible>
           <Collapsible title="Comparte" classIcon="fas fa-share-alt">
-            <Share />
+            <Share shareValue={this.props.shareValue} />
           </Collapsible>
         </form>
       </section>
