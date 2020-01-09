@@ -22,7 +22,7 @@ class App extends React.Component {
       linkedin: "",
       github: "",
       palette: "1",
-      shareButton: "filter",
+      shareButton: "filter"
     };
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
     this.fileUploadHandler = this.fileUploadHandler.bind(this);
@@ -34,7 +34,7 @@ class App extends React.Component {
   paletteHandler(ev) {
     const id = ev.target.id;
     this.setState({
-      palette: id,
+      palette: id
     });
   }
 
@@ -47,7 +47,7 @@ class App extends React.Component {
       phone: "",
       linkedin: "",
       github: "",
-      palette: "1",
+      palette: "1"
     });
   }
 
@@ -59,7 +59,7 @@ class App extends React.Component {
   fileUploadHandler() {
     const imageData = this.fr.result;
     this.setState({
-      image: [imageData],
+      image: [imageData]
     });
   }
 
@@ -67,7 +67,7 @@ class App extends React.Component {
     const id = ev.target.id;
     const value = ev.target.value;
     this.setState({
-      [id]: value,
+      [id]: value
     });
   }
 
@@ -82,30 +82,8 @@ class App extends React.Component {
               <>
                 <Header />
                 <main className="main">
-                  <Preview
-                    resetHandler={this.resetHandler}
-                    palette={this.state.palette}
-                    image={this.state.image}
-                    name={this.state.name}
-                    job={this.state.job}
-                    email={this.state.email}
-                    phone={this.state.phone}
-                    linkedin={this.state.linkedin}
-                    github={this.state.github}
-                  />
-                  <Form
-                    paletteHandler={this.paletteHandler}
-                    palette={this.state.palette}
-                    handleInputChange={this.handleInputChange}
-                    name={this.state.name}
-                    job={this.state.job}
-                    email={this.state.email}
-                    phone={this.state.phone}
-                    linkedin={this.state.linkedin}
-                    github={this.state.github}
-                    image={this.state.image}
-                    fileSelectedHandler={this.fileSelectedHandler}
-                  />
+                  <Preview resetHandler={this.resetHandler} palette={this.state.palette} image={this.state.image} name={this.state.name} job={this.state.job} email={this.state.email} phone={this.state.phone} linkedin={this.state.linkedin} github={this.state.github} />
+                  <Form paletteHandler={this.paletteHandler} palette={this.state.palette} handleInputChange={this.handleInputChange} name={this.state.name} job={this.state.job} email={this.state.email} phone={this.state.phone} linkedin={this.state.linkedin} github={this.state.github} image={this.state.image} fileSelectedHandler={this.fileSelectedHandler} />
                 </main>
               </>
             )}

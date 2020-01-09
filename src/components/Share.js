@@ -21,7 +21,7 @@ class Share extends React.Component {
   render() {
     return (
       <fieldset className="share">
-        <button onClick={this.clickHandler} type="submit" className="share__btn ">
+        <button onClick={this.clickHandler} type="submit" className={`share__btn ${this.state.name ? " " : "filter"}`}>
           <i className="far fa-address-card share__icon"></i>Crear tarjeta
         </button>
         <fieldset className={`twitter ${this.state.hidden}`}>
