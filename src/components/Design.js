@@ -11,7 +11,7 @@ class Design extends React.Component {
           <Palette
             paletteHandler={this.props.paletteHandler}
             htmlFor="1"
-            Checked={this.props.palette === "1"}
+            checked={this.props.palette === "1"}
             value="1"
             color1="colors colors--green1"
             color2="colors colors--green2"
@@ -20,7 +20,7 @@ class Design extends React.Component {
           <Palette
             paletteHandler={this.props.paletteHandler}
             htmlFor="2"
-            Checked={this.props.palette === "2"}
+            checked={this.props.palette === "2"}
             value="2"
             color1="colors colors--red1"
             color2="colors colors--red2"
@@ -29,7 +29,7 @@ class Design extends React.Component {
           <Palette
             paletteHandler={this.props.paletteHandler}
             htmlFor="3"
-            Checked={this.props.palette === "3"}
+            checked={this.props.palette === "3"}
             value="3"
             color1="colors colors--gray1"
             color2="colors colors--gray2"

@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-
 import "../stylesheets/app.scss";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -12,8 +11,7 @@ import localStorage from "../localStorage/";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.fr = new FileReader();
-    this.state = {
+    const localStorageData = localStorage.get("user", {
       image: "",
       name: "",
       job: "",
@@ -23,7 +21,9 @@ class App extends React.Component {
       github: "",
       palette: "1",
       shareButton: "filter"
-    };
+    });
+    this.fr = new FileReader();
+    this.state = localStorageData;
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
     this.fileUploadHandler = this.fileUploadHandler.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -69,6 +69,10 @@ class App extends React.Component {
     this.setState({
       [id]: value
     });
+  }
+
+  componentDidUpdate() {
+    localStorage.set("user", this.state);
   }
 
   render() {
