@@ -25,12 +25,13 @@ class Form extends React.Component {
               linkedin={this.props.linkedin}
               github={this.props.github}
               handleInputChange={this.props.handleInputChange}
-              image={this.props.image}
+              photo={this.props.photo}
               fileSelectedHandler={this.props.fileSelectedHandler}
             />
           </Collapsible>
           <Collapsible title="Comparte" classIcon="fas fa-share-alt">
-            <Share />
+            <Share
+              fetchFunction={this.props.fetchFunction} />
           </Collapsible>
         </form>
       </section>

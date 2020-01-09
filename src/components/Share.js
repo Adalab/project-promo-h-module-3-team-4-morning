@@ -13,15 +13,15 @@ class Share extends React.Component {
   clickHandler(ev) {
     ev.preventDefault();
 
-    this.setState({
-      hidden: ""
-    });
+    // this.setState({
+    //   hidden: ""
+    // });
   }
 
   render() {
     return (
       <fieldset className="share">
-        <button onClick={this.clickHandler} type="submit" className="share__btn ">
+        <button onClick={this.props.fetchFunction} type="submit" className="share__btn ">
           <i className="far fa-address-card share__icon"></i>Crear tarjeta
         </button>
         <fieldset className={`twitter ${this.state.hidden}`}>

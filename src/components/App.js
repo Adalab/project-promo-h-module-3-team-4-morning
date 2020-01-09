@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     const localStorageData = localStorage.get('user', {
-      image: "",
+      photo: "",
       name: "",
       job: "",
       email: "",
@@ -21,6 +21,7 @@ class App extends React.Component {
       github: "",
       palette: "1",
       shareButton: "filter",
+      responseURL: ""
     })
     this.fr = new FileReader();
     this.state = localStorageData;
@@ -29,6 +30,7 @@ class App extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.paletteHandler = this.paletteHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
+    this.fetchFunction = this.fetchFunction.bind(this);
   }
 
   paletteHandler(ev) {
@@ -40,7 +42,7 @@ class App extends React.Component {
 
   resetHandler() {
     this.setState({
-      image: "",
+      photo: "",
       name: "",
       job: "",
       email: "",
@@ -52,15 +54,48 @@ class App extends React.Component {
     });
   }
 
+  fetchFunction() {
+    fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {
+        'content-type': 'application/json'
+      },
+    })
+      .then(function (resp) {
+        return resp.json();
+      })
+      .then(function (result) {
+        this.showURL(result);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  showURL(result) {
+    if (result.success) {
+      this.setState({
+        responseURL: '<a href=' + result.cardURL + '>' + result.cardURL + '</a>'
+      });
+    } else {
+      this.setState({
+        responseURL: 'ERROR:' + result.error
+      });
+    }
+  }
+
+
   fileSelectedHandler(ev) {
     let myFile = ev.target.files[0];
     this.fr.addEventListener("load", this.fileUploadHandler);
     this.fr.readAsDataURL(myFile);
   }
+
   fileUploadHandler() {
     const imageData = this.fr.result;
     this.setState({
-      image: [imageData],
+      photo: [imageData],
     });
   }
 
@@ -90,7 +125,7 @@ class App extends React.Component {
                   <Preview
                     resetHandler={this.resetHandler}
                     palette={this.state.palette}
-                    image={this.state.image}
+                    photo={this.state.photo}
                     name={this.state.name}
                     job={this.state.job}
                     email={this.state.email}
@@ -108,8 +143,9 @@ class App extends React.Component {
                     phone={this.state.phone}
                     linkedin={this.state.linkedin}
                     github={this.state.github}
-                    image={this.state.image}
+                    photo={this.state.photo}
                     fileSelectedHandler={this.fileSelectedHandler}
+                    fetchFunction={this.fetchFunction}
                   />
                 </main>
               </>

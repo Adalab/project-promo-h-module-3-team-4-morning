@@ -19,7 +19,7 @@ class Image extends React.Component {
                 <div className="fill__image">
                     <button onClick={this.handleClick} className="fill__image--button">Añadir imagen</button>
                     <input onChange={this.props.fileSelectedHandler} type="file" name="" id="img-selector" className="fill__image--input" ref={fileInput => this.fileInput = fileInput} />
-                    <div className="fill__image--miniature" style={{ backgroundImage: `url(${this.props.image})` }}></div>
+                    <div className="fill__image--miniature" style={{ backgroundImage: `url(${this.props.photo})` }}></div>
                 </div>
             </div >
         )
