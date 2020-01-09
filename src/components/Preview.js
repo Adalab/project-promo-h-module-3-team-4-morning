@@ -18,7 +18,7 @@ class Preview extends React.Component {
                 <h3 className="preview__display--subtitle">{this.props.job || "Front-end Developer"}</h3>
               </div>
             </header>
-            <div className="preview__display--img" style={{ backgroundImage: `url(${this.props.image || defaultImage})` }}></div>
+            <div className="preview__display--img" style={{ backgroundImage: `url(${this.props.photo || defaultImage})` }}></div>
             <footer className="preview__display--footer menu">
               <ul className="menu__list">
                 <Icon href={`mailto:${this.props.email}`} classLi={`menu__items--email ${this.props.email ? '' : 'filter'}`} classI="far fa-envelope" />
