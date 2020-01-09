@@ -32,6 +32,7 @@ class App extends React.Component {
     this.resetHandler = this.resetHandler.bind(this);
     this.handleFetch = this.handleFetch.bind(this);
     this.changeColorBtn = this.changeColorBtn.bind(this);
+    this.isFilledRight = this.isFilledRight.bind(this);
   }
 
   paletteHandler(ev) {
@@ -57,6 +58,7 @@ class App extends React.Component {
   }
 
   sendRequest(json) {
+
     fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
       method: 'POST',
       body: JSON.stringify(json),
@@ -102,6 +104,17 @@ class App extends React.Component {
       [id]: value,
     });
     this.changeColorBtn();
+  }
+
+  isFilledRight() {
+    this.setState((prevState, props) => {
+      debugger
+      if (!!prevState.name === true && !!prevState.job === true && !!prevState.email === true && !!prevState.phone === true && !!prevState.linkedin === true && !!prevState.github === true && !!prevState.photo === true) {
+        return true
+      } else {
+        return false
+      }
+    });
   }
 
   changeColorBtn() {
