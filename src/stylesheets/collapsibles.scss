@@ -61,6 +61,7 @@
 // CREAR CLASE OPEN Y CLOSE
 
 .closed {
+  background-color: turquoise;
   .collapsible--window {
     display: none;
   }
@@ -70,8 +71,11 @@
 }
 
 .open {
+  transition: 5s ease all;
+  background-color: yellow;
   .collapsible {
     border-bottom: 1px solid transparent;
+    display: flex;
   }
 
   .collapsible--arrow {
