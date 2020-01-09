@@ -31,7 +31,10 @@ class Form extends React.Component {
           </Collapsible>
           <Collapsible title="Comparte" classIcon="fas fa-share-alt">
             <Share
-              fetchFunction={this.props.fetchFunction} />
+              fetchFunction={this.props.fetchFunction}
+              handleFetch={this.props.handleFetch}
+              url={this.props.url}
+            />
           </Collapsible>
         </form>
       </section>

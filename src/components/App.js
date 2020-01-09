@@ -21,7 +21,7 @@ class App extends React.Component {
       github: "",
       palette: "1",
       shareButton: "filter",
-      responseURL: ""
+      url: ''
     })
     this.fr = new FileReader();
     this.state = localStorageData;
@@ -30,7 +30,7 @@ class App extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.paletteHandler = this.paletteHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
-    this.fetchFunction = this.fetchFunction.bind(this);
+    this.handleFetch = this.handleFetch.bind(this);
   }
 
   paletteHandler(ev) {
@@ -50,41 +50,34 @@ class App extends React.Component {
       linkedin: "",
       github: "",
       palette: "1",
-
+      url: ''
     });
   }
 
-  fetchFunction() {
+  sendRequest(json) {
     fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
       method: 'POST',
-      body: JSON.stringify(this.state),
+      body: JSON.stringify(json),
       headers: {
         'content-type': 'application/json'
       },
     })
-      .then(function (resp) {
-        return resp.json();
-      })
-      .then(function (result) {
-        this.showURL(result);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .then(function (resp) { return resp.json(); })
+      //loader//
+      .then(data => {
+        this.setState({
+          url: data.cardURL
+        })
+        return data.cardURL
+      }
+      )
+      .catch(function (error) { console.log(error); });
   }
 
-  showURL(result) {
-    if (result.success) {
-      this.setState({
-        responseURL: '<a href=' + result.cardURL + '>' + result.cardURL + '</a>'
-      });
-    } else {
-      this.setState({
-        responseURL: 'ERROR:' + result.error
-      });
-    }
+  handleFetch(ev) {
+    ev.preventDefault();
+    this.sendRequest(this.state);
   }
-
 
   fileSelectedHandler(ev) {
     let myFile = ev.target.files[0];
@@ -95,7 +88,7 @@ class App extends React.Component {
   fileUploadHandler() {
     const imageData = this.fr.result;
     this.setState({
-      photo: [imageData],
+      photo: imageData,
     });
   }
 
@@ -146,6 +139,8 @@ class App extends React.Component {
                     photo={this.state.photo}
                     fileSelectedHandler={this.fileSelectedHandler}
                     fetchFunction={this.fetchFunction}
+                    handleFetch={this.handleFetch}
+                    url={this.state.url}
                   />
                 </main>
               </>
