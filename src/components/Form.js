@@ -35,6 +35,7 @@ class Form extends React.Component {
               handleFetch={this.props.handleFetch}
               url={this.props.url}
               loading={this.props.loading}
+              shareValue={this.props.shareValue}
             />
           </Collapsible>
         </form>
