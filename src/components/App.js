@@ -21,7 +21,9 @@ class App extends React.Component {
       github: "",
       palette: "1",
       shareButton: "filter",
-      url: ''
+      url: '',
+      isLoading: true
+
     })
     this.fr = new FileReader();
     this.state = localStorageData;
@@ -63,10 +65,10 @@ class App extends React.Component {
       },
     })
       .then(function (resp) { return resp.json(); })
-      //loader//
       .then(data => {
         this.setState({
-          url: data.cardURL
+          url: data.cardURL,
+          isLoading: false
         })
         return data.cardURL
       }
@@ -76,6 +78,9 @@ class App extends React.Component {
 
   handleFetch(ev) {
     ev.preventDefault();
+    this.setState({
+      isLoading: true
+    })
     this.sendRequest(this.state);
   }
 
@@ -141,6 +146,7 @@ class App extends React.Component {
                     fetchFunction={this.fetchFunction}
                     handleFetch={this.handleFetch}
                     url={this.state.url}
+                    loading={this.state.isLoading}
                   />
                 </main>
               </>

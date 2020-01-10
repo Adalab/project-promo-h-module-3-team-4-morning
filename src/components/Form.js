@@ -34,6 +34,7 @@ class Form extends React.Component {
               fetchFunction={this.props.fetchFunction}
               handleFetch={this.props.handleFetch}
               url={this.props.url}
+              loading={this.props.loading}
             />
           </Collapsible>
         </form>

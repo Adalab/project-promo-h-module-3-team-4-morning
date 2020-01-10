@@ -49,6 +49,9 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   border-bottom: $bottomBorder solid 1px;
   padding-bottom: 30px;
 
@@ -102,4 +105,13 @@
 
 .hidden {
   display: none;
+}
+
+.loader__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
