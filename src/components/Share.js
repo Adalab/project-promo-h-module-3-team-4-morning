@@ -10,6 +10,7 @@ class Share extends React.Component {
   }
 
   render() {
+    const twitterText = 'Mira que tarjeta más chula me acabo de crear! Esta es mi tarjeta: '
     const loadingElement = this.props.loading ? (<div className="loader__container"><Loader className="loader" type="ThreeDots" color="grey" height="100" width="100" /></div>) : null;
 
     const twitterBtn = this.props.shareURL
@@ -17,11 +18,9 @@ class Share extends React.Component {
         <h2 className="twitter__title">La tarjeta ha sido creada:</h2>
         <a className="twitter__link " href={this.props.shareURL}>{this.props.shareURL}</a>
         <button className="twitter__button ">
-          <a href={`https://twitter.com/intent/tweet?text=`} target="_blank" className="twitter__link2" />
-          <i className="twitter__button--icon fab fa-twitter" ></i>Compartir en Twitter
-          </button>
-
-      </fieldset>)
+          <a href={`https://twitter.com/intent/tweet?text=${twitterText}${this.props.shareURL}`} target="_blank" className="twitter__link2" >
+            <i className="twitter__button--icon fab fa-twitter" ></i>Compartir en Twitter </a></button>
+      </fieldset >)
       : null;
 
 
