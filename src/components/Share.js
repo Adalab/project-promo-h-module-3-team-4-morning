@@ -19,6 +19,8 @@ class Share extends React.Component {
   }
 
   render() {
+
+    const tweetText = '¡Échale un vistazo a mi tarjeta de visita zero-waste! ¿A qué esperas para hacer la tuya?'
     return (
       <fieldset className="share">
         <button onClick={this.clickHandler} type="submit" className="share__btn ">
@@ -28,8 +30,8 @@ class Share extends React.Component {
           <h2 className="twitter__title">La tarjeta ha sido creada:</h2>
           <a className="twitter__link " href=""></a>
           <button className="twitter__button ">
-            <a href="" target="_blank" className="twitter__link2 " />
-            <i className="twitter__button--icon fab fa-twitter"></i>Compartir en Twitter
+            <a href={`https://twitter.com/intent/tweet?text=${tweetText}`} target="_blank" className="twitter__link2" />
+            <i className="twitter__button--icon fab fa-twitter" ></i>Compartir en Twitter
           </button>
         </fieldset>
       </fieldset>
