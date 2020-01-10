@@ -34,7 +34,6 @@ class App extends React.Component {
     this.resetHandler = this.resetHandler.bind(this);
     this.handleFetch = this.handleFetch.bind(this);
     this.changeColorBtn = this.changeColorBtn.bind(this);
-    this.isFilledRight = this.isFilledRight.bind(this);
   }
 
   paletteHandler(ev) {
@@ -54,7 +53,9 @@ class App extends React.Component {
       linkedin: "",
       github: "",
       palette: "1",
-      url: ''
+      url: '',
+      shareButton: "filter",
+      isLoading: true
     });
     this.changeColorBtn();
   }
@@ -111,16 +112,16 @@ class App extends React.Component {
     this.changeColorBtn();
   }
 
-  isFilledRight() {
-    this.setState((prevState, props) => {
-      debugger
-      if (!!prevState.name === true && !!prevState.job === true && !!prevState.email === true && !!prevState.phone === true && !!prevState.linkedin === true && !!prevState.github === true && !!prevState.photo === true) {
-        return true
-      } else {
-        return false
-      }
-    });
-  }
+  // isFilledRight() {
+  //   this.setState((prevState, props) => {
+  //     debugger
+  //     if (!!prevState.name === true && !!prevState.job === true && !!prevState.email === true && !!prevState.phone === true && !!prevState.linkedin === true && !!prevState.github === true && !!prevState.photo === true) {
+  //       return true
+  //     } else {
+  //       return false
+  //     }
+  //   });
+  // }
 
   changeColorBtn() {
     this.setState((prevState, props) => {
