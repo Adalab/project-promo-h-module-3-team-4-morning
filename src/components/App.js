@@ -40,6 +40,8 @@ class App extends React.Component {
     const id = ev.target.id;
     this.setState({
       palette: id,
+      url: '',
+
     });
   }
 
@@ -84,7 +86,8 @@ class App extends React.Component {
   handleFetch(ev) {
     ev.preventDefault();
     this.setState({
-      isLoading: true
+      isLoading: true,
+      url: ''
     })
     this.sendRequest(this.state);
   }
@@ -99,6 +102,7 @@ class App extends React.Component {
     const imageData = this.fr.result;
     this.setState({
       photo: imageData,
+      url: '',
     });
     this.changeColorBtn();
   }
@@ -108,6 +112,7 @@ class App extends React.Component {
     const value = ev.target.value;
     this.setState({
       [id]: value,
+      url: '',
     });
     this.changeColorBtn();
   }
@@ -178,7 +183,9 @@ class App extends React.Component {
                     handleFetch={this.handleFetch}
                     url={this.state.url}
                     loading={this.state.isLoading}
+                    shareURL={this.state.url}
                     shareValue={this.state.shareButton}
+
                   />
                 </main>
               </>
