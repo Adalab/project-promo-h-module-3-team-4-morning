@@ -12,9 +12,6 @@
   padding-top: 10px;
   padding-bottom: 7px;
   border-bottom: 1px solid $bottomBorder;
-  -webkit-transition: border-bottom 0;
-  -webkit-transition: border-bottom 0.4s ease;
-  transition: border-bottom 0.4s ease;
 
   &__left {
     display: -webkit-box;
@@ -49,10 +46,10 @@
     transition: transform 0.4s ease, -webkit-transform 0.2s ease;
   }
 
-  &--window {
-    -webkit-transition: max-height 0.4s ease-in-out;
-    transition: max-height 0.4s ease-in-out;
-  }
+  // &--window {
+  //   -webkit-transition: max-height 1s ease;
+  //   transition: max-height 1s ease;
+  // }
 
   &:hover {
     cursor: pointer;
@@ -63,6 +60,8 @@
   .collapsible--window {
     max-height: 0;
     overflow: hidden;
+    // -webkit-transition: max-height 1s ease-in-out;
+    // transition: max-height 1s ease-in-out;
   }
 
   .collapsible--arrow {
@@ -78,6 +77,8 @@
 
   .collapsible--window {
     max-height: 100%;
+    // -webkit-transition: max-height 1s ease-in-out;
+    // transition: max-height 1s ease-in-out;
   }
 
   .collapsible--arrow {

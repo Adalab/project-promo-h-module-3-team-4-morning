@@ -16,7 +16,7 @@ class Share extends React.Component {
     const twitterBtn = this.props.shareURL
       ? (<fieldset className={`twitter `}>
         <h2 className="twitter__title">La tarjeta ha sido creada:</h2>
-        <a className="twitter__link " href={this.props.shareURL}>{this.props.shareURL}</a>
+        <a className="twitter__link " target="_blank" href={this.props.shareURL}>{this.props.shareURL}</a>
         <button className="twitter__button ">
           <a href={`https://twitter.com/intent/tweet?text=${twitterText}${this.props.shareURL}`} target="_blank" className="twitter__link2" >
             <i className="twitter__button--icon fab fa-twitter" ></i>Compartir en Twitter </a></button>
