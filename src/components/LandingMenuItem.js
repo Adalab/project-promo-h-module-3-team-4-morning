@@ -1,11 +1,11 @@
 import React from "react";
-// import "../stylesheets/mainStyle.scss";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class MenuItem extends React.Component {
   render() {
     return (
       <li className="menu__item">
-        <i className={`menu__item--fav ${this.props.className}`}></i>
+        <FontAwesomeIcon className="menu__item--fav" icon={this.props.icon} />
         <h3 className="menu__item--text">{this.props.text}</h3>
       </li>
     );
