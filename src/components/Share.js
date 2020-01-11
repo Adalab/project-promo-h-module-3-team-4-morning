@@ -31,7 +31,6 @@ class Share extends React.Component {
         </button>
         {loadingElement}
         {twitterBtn}
-
       </fieldset>
     )
   }

@@ -12,7 +12,6 @@ class Collapsible extends React.Component {
   }
 
   handleClose() {
-    // console.log("abrir y cerrar", this.state);
     this.setState((prevState, props) => {
       let nextStyling;
       if (prevState.collapsible === "closed") {
