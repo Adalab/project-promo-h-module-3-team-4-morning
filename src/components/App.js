@@ -22,7 +22,7 @@ class App extends React.Component {
       palette: "1",
       shareButton: "filter",
       url: '',
-      isLoading: true
+      isLoading: 'true'
 
     })
     this.fr = new FileReader();
@@ -57,7 +57,6 @@ class App extends React.Component {
       palette: "1",
       url: '',
       shareButton: "filter",
-      isLoading: true
     });
     this.changeColorBtn();
   }
@@ -185,7 +184,6 @@ class App extends React.Component {
                     loading={this.state.isLoading}
                     shareURL={this.state.url}
                     shareValue={this.state.shareButton}
-
                   />
                 </main>
               </>

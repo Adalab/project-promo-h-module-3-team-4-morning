@@ -1,7 +1,10 @@
 import React from "react";
 import "../stylesheets/share.scss";
-import ReactLoading from 'react-loading';
 import Loader from 'react-loader-spinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAddressCard } from '@fortawesome/free-regular-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+
 
 class Share extends React.Component {
   constructor(props) {
@@ -19,7 +22,8 @@ class Share extends React.Component {
         <a className="twitter__link " target="_blank" href={this.props.shareURL}>{this.props.shareURL}</a>
         <button className="twitter__button ">
           <a href={`https://twitter.com/intent/tweet?text=${twitterText}${this.props.shareURL}`} target="_blank" className="twitter__link2" >
-            <i className="twitter__button--icon fab fa-twitter" ></i>Compartir en Twitter </a></button>
+            <FontAwesomeIcon className="twitter__button--icon" icon={faTwitter} />
+            Compartir en Twitter </a></button>
       </fieldset >)
       : null;
 
@@ -27,7 +31,8 @@ class Share extends React.Component {
     return (
       <fieldset className="share">
         <button onClick={this.props.handleFetch} type="submit" className={`share__btn ${this.props.shareValue}`}>
-          <i className="far fa-address-card share__icon"></i>Crear tarjeta
+          <FontAwesomeIcon className="share__icon" icon={faAddressCard} />
+          Crear tarjeta
         </button>
         {loadingElement}
         {twitterBtn}

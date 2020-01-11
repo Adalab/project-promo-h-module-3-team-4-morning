@@ -4,6 +4,10 @@ import Collapsible from "./Collapsible";
 import Design from "./Design";
 import Fill from "./Fill";
 import Share from "./Share";
+import { faKeyboard } from '@fortawesome/free-solid-svg-icons';
+import { faObjectUngroup } from '@fortawesome/free-regular-svg-icons';
+import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 class Form extends React.Component {
 
@@ -11,13 +15,13 @@ class Form extends React.Component {
     return (
       <section className="form">
         <form >
-          <Collapsible title="Diseña" classIcon="far fa-object-ungroup">
+          <Collapsible title="Diseña" icon={faObjectUngroup}>
             <Design
               paletteHandler={this.props.paletteHandler}
               palette={this.props.palette}
             />
           </Collapsible>
-          <Collapsible title="Rellena" classIcon="far fa-keyboard">
+          <Collapsible title="Rellena" icon={faKeyboard}>
             <Fill
               name={this.props.name}
               job={this.props.job}
@@ -30,7 +34,7 @@ class Form extends React.Component {
               fileSelectedHandler={this.props.fileSelectedHandler}
             />
           </Collapsible>
-          <Collapsible title="Comparte" classIcon="fas fa-share-alt">
+          <Collapsible title="Comparte" icon={faShareAlt}>
             <Share
               fetchFunction={this.props.fetchFunction}
               handleFetch={this.props.handleFetch}
@@ -41,7 +45,7 @@ class Form extends React.Component {
             />
           </Collapsible>
         </form>
-      </section>
+      </section >
     );
   }
 }
