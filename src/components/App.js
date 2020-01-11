@@ -22,7 +22,7 @@ class App extends React.Component {
       palette: "1",
       shareButton: "filter",
       url: '',
-      isLoading: 'true'
+      isLoading: ''
 
     })
     this.fr = new FileReader();
