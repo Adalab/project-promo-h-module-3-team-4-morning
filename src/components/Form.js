@@ -14,7 +14,7 @@ class Form extends React.Component {
   render() {
     return (
       <section className="form">
-        <form >
+        <form  >
           <Collapsible title="Diseña" icon={faObjectUngroup}>
             <Design
               paletteHandler={this.props.paletteHandler}
