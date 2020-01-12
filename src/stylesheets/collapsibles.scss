@@ -37,6 +37,8 @@
   }
 
   &--arrow {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
     font-size: 18px;
     color: $colorSecondary;
     -webkit-transition: -webkit-transform 0.4s ease;
@@ -44,12 +46,16 @@
     transition: transform 0.4s ease;
     transition: transform 0.4s ease, -webkit-transform 0.4s ease;
     transition: transform 0.4s ease, -webkit-transform 0.2s ease;
+
   }
 
   &--window {
+    max-height: 0;
+    overflow: hidden;
     -webkit-transition: max-height 1s ease-in-out;
     transition: max-height 1s ease-in-out;
   }
+
 
   &:hover {
     cursor: pointer;
@@ -57,17 +63,9 @@
 }
 
 .closed {
-  .collapsible--window {
-    max-height: 0;
-    overflow: hidden;
-    // -webkit-transition: max-height 1s ease-in-out;
-    // transition: max-height 1s ease-in-out;
-  }
+  .collapsible--window {}
 
-  .collapsible--arrow {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
+  .collapsible--arrow {}
 }
 
 .open {
@@ -77,8 +75,8 @@
 
   .collapsible--window {
     max-height: 100vh;
-    // -webkit-transition: max-height 1s ease-in-out;
-    // transition: max-height 1s ease-in-out;
+    -webkit-transition: max-height 1s ease-in-out;
+    transition: max-height 1s ease-in-out;
   }
 
   .collapsible--arrow {

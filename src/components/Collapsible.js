@@ -5,36 +5,10 @@ import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 
 class Collapsible extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      collapsible: "closed",
-    };
-    this.handleClose = this.handleClose.bind(this);
-  }
-
-  handleClose() {
-    this.setState((prevState, props) => {
-      let nextStyling;
-      if (prevState.collapsible === "closed") {
-        nextStyling = "open";
-      } else {
-        nextStyling = "closed";
-      }
-      return {
-        collapsible: nextStyling,
-        design: nextStyling,
-        fill: nextStyling,
-        share: nextStyling,
-      };
-    });
-  }
-
   render() {
     return (
-      <div className={this.state.collapsible}>
-        <legend className="collapsible" onClick={this.handleClose}>
+      <section id={this.props.id} className={this.props.collapsibleId === this.props.id ? 'open' : ''}>
+        <legend className='collapsible' onClick={this.props.handleCollapsibleAction} id={this.props.id}>
           <div className="collapsible__left">
             <div className="collapsible__left--fav ">
               <FontAwesomeIcon icon={this.props.icon} />
@@ -43,8 +17,10 @@ class Collapsible extends React.Component {
           </div>
           <FontAwesomeIcon className="collapsible--arrow" icon={faChevronUp} />
         </legend>
-        <div className="collapsible--window">{this.props.children}</div>
-      </div>
+        <div className="collapsible--window">
+          {this.props.children}
+        </div>
+      </section>
     );
   }
 }
