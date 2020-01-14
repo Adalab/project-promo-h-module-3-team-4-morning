@@ -52,20 +52,14 @@
   &--window {
     max-height: 0;
     overflow: hidden;
-    -webkit-transition: max-height 1s ease-in-out;
-    transition: max-height 1s ease-in-out;
+    -webkit-transition: max-height 1.5s ease-in-out;
+    transition: max-height 1.5s ease-in-out;
   }
 
 
   &:hover {
     cursor: pointer;
   }
-}
-
-.closed {
-  .collapsible--window {}
-
-  .collapsible--arrow {}
 }
 
 .open {
@@ -75,8 +69,8 @@
 
   .collapsible--window {
     max-height: 100vh;
-    -webkit-transition: max-height 1s ease-in-out;
-    transition: max-height 1s ease-in-out;
+    -webkit-transition: max-height 1.5s ease-in-out;
+    transition: max-height 1.5s ease-in-out;
   }
 
   .collapsible--arrow {
