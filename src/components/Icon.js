@@ -7,7 +7,7 @@ class Icon extends React.Component {
   render() {
     return (
       <li className={`menu__items ${this.props.classLi}`}>
-        <a className={`menu__links ${this.props.classA}`} href={this.props.href} target="_blank">
+        <a className={`menu__links ${this.props.classA}`} href={this.props.href} target="_blank" rel="noopener noreferrer" >
           <FontAwesomeIcon className={this.props.classI} icon={this.props.icon} />
         </a>
       </li>

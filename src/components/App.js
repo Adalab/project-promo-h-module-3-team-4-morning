@@ -45,6 +45,7 @@ class App extends React.Component {
     });
   }
 
+
   resetHandler() {
     this.setState({
       photo: "",
@@ -116,21 +117,27 @@ class App extends React.Component {
     this.changeColorBtn();
   }
 
-  // isFilledRight() {
-  //   this.setState((prevState, props) => {
-  //     debugger
-  //     if (!!prevState.name === true && !!prevState.job === true && !!prevState.email === true && !!prevState.phone === true && !!prevState.linkedin === true && !!prevState.github === true && !!prevState.photo === true) {
-  //       return true
-  //     } else {
-  //       return false
-  //     }
-  //   });
-  // }
+  isValidEmail() {
+    const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!emailRegex.test(this.state.email)) {
+      return false
+    } else {
+      return true
+    }
+  }
 
   changeColorBtn() {
-    this.setState((prevState, props) => {
+    this.setState((prevState) => {
       let newStyle;
-      if (!!prevState.name === true && !!prevState.job === true && !!prevState.email === true && !!prevState.phone === true && !!prevState.linkedin === true && !!prevState.github === true && !!prevState.photo === true) {
+      const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const phoneRegex = /[0-9]{3}[0-9]{2}[0-9]{2}[0-9]{2}/;
+      if (!!prevState.name &&
+        !!prevState.job &&
+        !!emailRegex.test(prevState.email) &&
+        !!prevState.phone &&
+        !!prevState.linkedin &&
+        !!prevState.github &&
+        !!phoneRegex.test(prevState.phone)) {
         newStyle = "";
       } else {
         newStyle = "filter";
@@ -146,6 +153,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.isValidEmail())
     return (
       <div className="App">
         <Switch>
