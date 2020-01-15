@@ -7,6 +7,8 @@ import Preview from "./Preview";
 import Form from "./Form";
 import Landing from "./Landing";
 import localStorage from "../localStorage/";
+import { createCardFetch } from '../services/Api';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -83,23 +85,14 @@ class App extends React.Component {
 
 
   sendRequest(json) {
-
-    fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
-      method: 'POST',
-      body: JSON.stringify(json),
-      headers: {
-        'content-type': 'application/json'
-      },
-    })
-      .then(function (resp) { return resp.json(); })
+    createCardFetch(json)
       .then(data => {
         this.setState({
           url: data.cardURL,
           isLoading: false
         })
         return data.cardURL
-      }
-      )
+      })
       .catch(function (error) { console.log(error); });
   }
 
