@@ -3,11 +3,9 @@ import "../stylesheets/preview.scss";
 import Icon from "./Icon";
 import defaultImage from "../images/new-default-profile.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faTrashAlt, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import { faGithubAlt } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedinIn, faGithubAlt } from '@fortawesome/free-brands-svg-icons';
 
 class Preview extends React.Component {
   render() {
@@ -29,9 +27,9 @@ class Preview extends React.Component {
             <footer className="preview__display--footer menu">
               <ul className="menu__list">
                 <Icon href={`tel:+${this.props.phone}`} icon={faMobileAlt} classLi={`menu__items--phone ${this.props.phone ? '' : 'filter'}`} />
-                <Icon href={`mailto:${this.props.email}`} classLi={`menu__items--email ${this.props.email ? '' : 'filter'}`} icon={faEnvelope} />
-                <Icon href={`https://www.linkedin.com/in/${this.props.linkedin}`} classLi={`menu__items--linkedin ${this.props.linkedin ? '' : 'filter'}`} icon={faLinkedinIn} />
-                <Icon href={`https://www.github.com/${this.props.github}`} classLi={`menu__items--github ${this.props.github ? '' : 'filter'}`} icon={faGithubAlt} />
+                <Icon href={`mailto:${this.props.email}`} icon={faEnvelope} classLi={`menu__items--email ${this.props.email ? '' : 'filter'}`} />
+                <Icon href={`https://www.linkedin.com/in/${this.props.linkedin}`} icon={faLinkedinIn} classLi={`menu__items--linkedin ${this.props.linkedin ? '' : 'filter'}`} />
+                <Icon href={`https://www.github.com/${this.props.github}`} icon={faGithubAlt} classLi={`menu__items--github ${this.props.github ? '' : 'filter'}`} />
               </ul>
             </footer>
           </article>

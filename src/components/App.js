@@ -25,26 +25,21 @@ class App extends React.Component {
       isLoading: '',
       errorMessage: ''
     })
-    this.fr = new FileReader();
     this.state = localStorageData;
-    this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
-    this.fileUploadHandler = this.fileUploadHandler.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.paletteHandler = this.paletteHandler.bind(this);
+    this.inputChangeHandler = this.inputChangeHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
     this.handleFetch = this.handleFetch.bind(this);
     this.changeColorBtn = this.changeColorBtn.bind(this);
   }
 
-  paletteHandler(ev) {
-    const id = ev.target.id;
+  inputChangeHandler(data) {
     this.setState({
-      palette: id,
+      [data.id]: data.value,
       url: '',
       errorMessage: ''
-    });
+    })
+    this.changeColorBtn();
   }
-
 
   resetHandler() {
     this.setState({
@@ -62,45 +57,6 @@ class App extends React.Component {
     });
     this.changeColorBtn();
   }
-
-
-
-
-  fileSelectedHandler(ev) {
-    let myFile = ev.target.files[0];
-    this.fr.addEventListener("load", this.fileUploadHandler);
-    this.fr.readAsDataURL(myFile);
-  }
-
-  fileUploadHandler() {
-    const imageData = this.fr.result;
-    this.setState({
-      photo: imageData,
-      url: '',
-      errorMessage: ''
-    });
-    this.changeColorBtn();
-  }
-
-  handleInputChange(ev) {
-    const id = ev.target.id;
-    const value = ev.target.value;
-    this.setState({
-      [id]: value,
-      url: '',
-      errorMessage: ''
-    });
-    this.changeColorBtn();
-  }
-
-  // isValidEmail() {
-  //   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  //   if (!emailRegex.test(this.state.email)) {
-  //     return false
-  //   } else {
-  //     return true
-  //   }
-  // }
 
   changeColorBtn() {
     this.setState((prevState) => {
@@ -190,9 +146,8 @@ class App extends React.Component {
                     github={this.state.github}
                   />
                   <Form
-                    paletteHandler={this.paletteHandler}
                     palette={this.state.palette}
-                    handleInputChange={this.handleInputChange}
+                    inputChangeHandler={this.inputChangeHandler}
                     name={this.state.name}
                     job={this.state.job}
                     email={this.state.email}
@@ -200,7 +155,6 @@ class App extends React.Component {
                     linkedin={this.state.linkedin}
                     github={this.state.github}
                     photo={this.state.photo}
-                    fileSelectedHandler={this.fileSelectedHandler}
                     handleFetch={this.handleFetch}
                     url={this.state.url}
                     loading={this.state.isLoading}

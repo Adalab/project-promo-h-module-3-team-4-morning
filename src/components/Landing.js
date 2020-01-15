@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../stylesheets/landing.scss";
 import MenuItem from "./LandingMenuItem";
-import { faKeyboard } from '@fortawesome/free-solid-svg-icons';
+import { faKeyboard, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { faObjectUngroup } from '@fortawesome/free-regular-svg-icons';
-import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
 
 function Landing() {
   return (
