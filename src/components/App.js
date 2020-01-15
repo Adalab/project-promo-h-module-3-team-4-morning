@@ -119,6 +119,20 @@ class App extends React.Component {
   }
 
   render() {
+    const {
+      palette,
+      photo,
+      name,
+      job,
+      email,
+      phone,
+      linkedin,
+      github,
+      url,
+      isLoading,
+      shareButton,
+      errorMessage,
+    } = this.state;
     return (
       <div className="App">
         <Switch>
@@ -131,31 +145,31 @@ class App extends React.Component {
                 <main className="main">
                   <Preview
                     resetHandler={this.resetHandler}
-                    palette={this.state.palette}
-                    photo={this.state.photo}
-                    name={this.state.name}
-                    job={this.state.job}
-                    email={this.state.email}
-                    phone={this.state.phone}
-                    linkedin={this.state.linkedin}
-                    github={this.state.github}
+                    palette={palette}
+                    photo={photo}
+                    name={name}
+                    job={job}
+                    email={email}
+                    phone={phone}
+                    linkedin={linkedin}
+                    github={github}
                   />
                   <Form
-                    palette={this.state.palette}
+                    palette={palette}
                     inputChangeHandler={this.inputChangeHandler}
-                    name={this.state.name}
-                    job={this.state.job}
-                    email={this.state.email}
-                    phone={this.state.phone}
-                    linkedin={this.state.linkedin}
-                    github={this.state.github}
-                    photo={this.state.photo}
+                    name={name}
+                    job={job}
+                    email={email}
+                    phone={phone}
+                    linkedin={linkedin}
+                    github={github}
+                    photo={photo}
                     handleFetch={this.handleFetch}
-                    url={this.state.url}
-                    loading={this.state.isLoading}
-                    shareURL={this.state.url}
-                    shareValue={this.state.shareButton}
-                    errorMessage={this.state.errorMessage}
+                    url={url}
+                    loading={isLoading}
+                    shareURL={url}
+                    shareValue={shareButton}
+                    errorMessage={errorMessage}
                   />
                 </main>
               </>
