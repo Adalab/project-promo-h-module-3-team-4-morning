@@ -156,9 +156,8 @@ class App extends React.Component {
       })
       this.sendRequest(this.state);
     } else {
-      // alert('Por favor cumplimente de forma correcta este formulario')
       this.setState({
-        errorMessage: 'Por favor cumplimente de forma correcta este formulario'
+        errorMessage: 'Por favor, cumplimente correctamente los siguientes campos del formulario:'
       })
       console.log('vamos bien')
     }

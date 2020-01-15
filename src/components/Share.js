@@ -8,10 +8,9 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 class Share extends React.Component {
   render() {
-    console.log(this.props)
     const twitterText = 'Mira que tarjeta más chula me acabo de crear! Esta es mi tarjeta: '
     const loadingElement = this.props.loading ? (<div className="loader__container"><Loader className="loader" type="ThreeDots" color="grey" height="100" width="100" /></div>) : null;
-    const errorMessage = this.props.errorMessage ? <p>Por favor, cumplimente correctamente los siguientes campos del formulario:</p> : null;
+    const errorMessage = this.props.errorMessage ? <p>{this.props.errorMessage}</p> : null;
     const twitterBtn = this.props.shareURL
       ? (<fieldset className={`twitter `}>
         <h2 className="twitter__title">La tarjeta ha sido creada:</h2>
