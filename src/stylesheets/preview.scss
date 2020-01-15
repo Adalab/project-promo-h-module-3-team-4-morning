@@ -19,8 +19,9 @@
 
 .preview {
   @include center();
-  background-image: url("../images/flower.jpg");
-  background-repeat: repeat;
+  background-image: url("../images/2902366.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
