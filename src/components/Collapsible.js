@@ -8,7 +8,7 @@ class Collapsible extends React.Component {
   render() {
     return (
       <section id={this.props.id} className={this.props.collapsibleId === this.props.id ? "open" : ""}>
-        <legend className="collapsible" onClick={this.props.handleCollapsibleAction} id={this.props.id}>
+        <legend onClick={this.props.handleCollapsibleAction} className="collapsible" id={this.props.id}>
           <div className="collapsible__left">
             <div className="collapsible__left--fav ">
               <FontAwesomeIcon icon={this.props.icon} />
