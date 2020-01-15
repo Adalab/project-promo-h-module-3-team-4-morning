@@ -1,13 +1,14 @@
 import React from "react";
 import "../stylesheets/palette.scss";
+import PropTypes from "prop-types";
 
 const Palette = props => {
   const inputChangeHandler = ev => {
     props.inputChangeHandler({
       value: ev.target.value,
-      id: 'palette'
+      id: "palette"
     });
-  }
+  };
 
   return (
     <div>
@@ -23,5 +24,14 @@ const Palette = props => {
   );
 };
 
+Palette.propTypes = {
+  htmlFor: PropTypes.string,
+  inputChangeHandler: PropTypes.func,
+  checked: PropTypes.bool,
+  value: PropTypes.string,
+  color1: PropTypes.string,
+  color2: PropTypes.string,
+  color3: PropTypes.string
+};
 
 export default Palette;

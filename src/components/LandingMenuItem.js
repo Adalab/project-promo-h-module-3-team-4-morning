@@ -1,5 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
 
 class MenuItem extends React.Component {
   render() {
@@ -12,4 +13,8 @@ class MenuItem extends React.Component {
   }
 }
 
+MenuItem.propTypes = {
+  text: PropTypes.string,
+  icon: PropTypes.object
+};
 export default MenuItem;

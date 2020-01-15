@@ -2,11 +2,11 @@ import React from "react";
 import "../stylesheets/preview.scss";
 import Icon from "./Icon";
 import defaultImage from "../images/default-profile.png";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt, faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedinIn, faGithubAlt } from '@fortawesome/free-brands-svg-icons';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt, faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faMobileAlt } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedinIn, faGithubAlt } from "@fortawesome/free-brands-svg-icons";
+import PropTypes from "prop-types";
 
 class Preview extends React.Component {
   render() {
@@ -27,10 +27,10 @@ class Preview extends React.Component {
             <div className="preview__display--img" style={{ backgroundImage: `url(${this.props.photo || defaultImage})` }}></div>
             <footer className="preview__display--footer menu">
               <ul className="menu__list">
-                <Icon href={`tel:+${this.props.phone}`} icon={faMobileAlt} classLi={`menu__items--phone ${this.props.phone ? '' : 'filter'}`} />
-                <Icon href={`mailto:${this.props.email}`} icon={faEnvelope} classLi={`menu__items--email ${this.props.email ? '' : 'filter'}`} />
-                <Icon href={`https://www.linkedin.com/in/${this.props.linkedin}`} icon={faLinkedinIn} classLi={`menu__items--linkedin ${this.props.linkedin ? '' : 'filter'}`} />
-                <Icon href={`https://www.github.com/${this.props.github}`} icon={faGithubAlt} classLi={`menu__items--github ${this.props.github ? '' : 'filter'}`} />
+                <Icon href={`tel:+${this.props.phone}`} icon={faMobileAlt} classLi={`menu__items--phone ${this.props.phone ? "" : "filter"}`} />
+                <Icon href={`mailto:${this.props.email}`} icon={faEnvelope} classLi={`menu__items--email ${this.props.email ? "" : "filter"}`} />
+                <Icon href={`https://www.linkedin.com/in/${this.props.linkedin}`} icon={faLinkedinIn} classLi={`menu__items--linkedin ${this.props.linkedin ? "" : "filter"}`} />
+                <Icon href={`https://www.github.com/${this.props.github}`} icon={faGithubAlt} classLi={`menu__items--github ${this.props.github ? "" : "filter"}`} />
               </ul>
             </footer>
           </article>
@@ -39,4 +39,9 @@ class Preview extends React.Component {
     );
   }
 }
+
+Preview.propTypes = {
+  defaultImage: PropTypes.string
+};
+
 export default Preview;
