@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import "../stylesheets/app.scss";
 import Header from "./Header";
@@ -10,7 +10,7 @@ import localStorage from "../localStorage/";
 import { createCardFetch } from '../services/Api';
 
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     const localStorageData = localStorage.get('user', {
@@ -82,7 +82,6 @@ class App extends React.Component {
       };
     });
   }
-
 
   sendRequest(json) {
     createCardFetch(json)
