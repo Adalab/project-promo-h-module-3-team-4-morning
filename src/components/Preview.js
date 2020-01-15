@@ -1,14 +1,13 @@
 import React from "react";
 import "../stylesheets/preview.scss";
 import Icon from "./Icon";
-import defaultImage from "../images/default-profile.png";
+import defaultImage from "../images/new-default-profile.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faGithubAlt } from '@fortawesome/free-brands-svg-icons';
-
 
 class Preview extends React.Component {
   render() {
