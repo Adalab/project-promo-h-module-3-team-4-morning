@@ -64,6 +64,13 @@ class Form extends React.Component {
               shareValue={this.props.shareValue}
               shareURL={this.props.shareURL}
               errorMessage={this.props.errorMessage}
+              name={this.props.name}
+              job={this.props.job}
+              email={this.props.email}
+              phone={this.props.phone}
+              linkedin={this.props.linkedin}
+              github={this.props.github}
+              photo={this.props.photo}
             />
           </Collapsible>
         </form>

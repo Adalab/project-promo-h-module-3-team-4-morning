@@ -11,7 +11,7 @@ class Share extends React.Component {
     console.log(this.props)
     const twitterText = 'Mira que tarjeta más chula me acabo de crear! Esta es mi tarjeta: '
     const loadingElement = this.props.loading ? (<div className="loader__container"><Loader className="loader" type="ThreeDots" color="grey" height="100" width="100" /></div>) : null;
-    const errorMessage = this.props.errorMessage ? <p>Cumplimente de forma correcta el Formulario</p> : null;
+    const errorMessage = this.props.errorMessage ? <p>Por favor, cumplimente correctamente los siguientes campos del formulario:</p> : null;
     const twitterBtn = this.props.shareURL
       ? (<fieldset className={`twitter `}>
         <h2 className="twitter__title">La tarjeta ha sido creada:</h2>
@@ -32,6 +32,13 @@ class Share extends React.Component {
           Crear tarjeta
         </button>
         {errorMessage}
+        {!this.props.name && !!this.props.errorMessage && <li>Nombre completo</li>}
+        {!this.props.job && !!this.props.errorMessage && <li>Puesto</li>}
+        {!this.props.photo && !!this.props.errorMessage && <li>Imagen de perfil</li>}
+        {!this.props.email && !!this.props.errorMessage && <li>Email</li>}
+        {!this.props.phone && !!this.props.errorMessage && <li>Teléfono</li>}
+        {!this.props.linkedin && !!this.props.errorMessage && <li>LinkedIn</li>}
+        {!this.props.github && !!this.props.errorMessage && <li>Github</li>}
         {loadingElement}
         {twitterBtn}
       </fieldset>
