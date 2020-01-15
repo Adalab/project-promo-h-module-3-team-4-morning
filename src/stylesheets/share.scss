@@ -32,7 +32,7 @@
 
   &__icon {
     padding-right: 9px;
-    height: 20px;
+    font-size: 25px;
   }
 }
 
@@ -63,13 +63,11 @@
   }
 
   &__link {
-    a {
-      color: $colorPrimary;
-      font-size: 12px;
-      font-family: $fontPrimary;
-      font-weight: 600;
-    }
 
+    font-size: 12px;
+    font-family: $fontPrimary;
+    font-weight: 600;
+    color: $colorPrimary;
     text-align: center;
     margin-bottom: 10px;
   }

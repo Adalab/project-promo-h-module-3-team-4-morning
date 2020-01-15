@@ -1,6 +1,6 @@
 import React from "react";
 import "../stylesheets/footer.scss";
-import logo from "../images/ECOME.png";
+import logo from "../images/reackers-logo.png";
 import logoAdalab from "../images/logo-adalab.png";
 
 class Footer extends React.Component {

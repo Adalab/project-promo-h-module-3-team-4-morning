@@ -7,7 +7,7 @@
   width: 75px;
   border-radius: 15px;
   border: solid 1px $colorButton;
-  background-color: transparent;
+  background-color: white;
   text-transform: uppercase;
   font-size: 12px;
   line-height: 1.67;
@@ -19,19 +19,11 @@
 
 .preview {
   @include center();
-  background-image: url("../images/flower.jpg");
-  background-position: 189px 401px;
-  background-clip: content-box;
-  background-repeat: round;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
+  background-image: url("../images/2902366.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   position: relative;
   min-height: 460px;

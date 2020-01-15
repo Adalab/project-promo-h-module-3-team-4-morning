@@ -68,7 +68,7 @@ class App extends Component {
       if (!!prevState.name &&
         !!prevState.job &&
         !!emailRegex.test(prevState.email) &&
-        !!prevState.phone &&
+        !!prevState.photo &&
         !!prevState.linkedin &&
         !!prevState.github &&
         !!phoneRegex.test(prevState.phone)) {
@@ -104,10 +104,10 @@ class App extends Component {
       })
       this.sendRequest(this.state);
     } else {
+      alert('Por favor, cumplimente correctamente todos los campos del formulario')
       this.setState({
         errorMessage: 'Por favor, cumplimente correctamente los siguientes campos del formulario:'
       })
-      console.log('vamos bien')
     }
   }
 
