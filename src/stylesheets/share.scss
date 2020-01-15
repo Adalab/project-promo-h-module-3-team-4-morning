@@ -16,11 +16,8 @@
     border-radius: 12px;
     font-family: $fontPrimary;
     font-size: 18px;
-
     display: -webkit-box;
-
     display: -ms-flexbox;
-
     display: flex;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
@@ -35,6 +32,7 @@
 
   &__icon {
     padding-right: 9px;
+    height: 20px;
   }
 }
 

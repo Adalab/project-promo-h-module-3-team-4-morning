@@ -7,6 +7,7 @@ import Preview from "./Preview";
 import Form from "./Form";
 import Landing from "./Landing";
 import localStorage from "../localStorage/";
+import { createCardFetch } from "../services/Api";
 
 class App extends React.Component {
   constructor(props) {
@@ -22,25 +23,23 @@ class App extends React.Component {
       palette: "1",
       shareButton: "filter",
       url: "",
-      isLoading: true,
+      isLoading: "",
+      errorMessage: "",
     });
-    this.fr = new FileReader();
     this.state = localStorageData;
-    this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
-    this.fileUploadHandler = this.fileUploadHandler.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.paletteHandler = this.paletteHandler.bind(this);
+    this.inputChangeHandler = this.inputChangeHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
     this.handleFetch = this.handleFetch.bind(this);
     this.changeColorBtn = this.changeColorBtn.bind(this);
   }
 
-  paletteHandler(ev) {
-    const id = ev.target.id;
+  inputChangeHandler(data) {
     this.setState({
-      palette: id,
+      [data.id]: data.value,
       url: "",
+      errorMessage: "",
     });
+    this.changeColorBtn();
   }
 
   resetHandler() {
@@ -55,22 +54,37 @@ class App extends React.Component {
       palette: "1",
       url: "",
       shareButton: "filter",
-      isLoading: true,
+      errorMessage: "",
     });
     this.changeColorBtn();
   }
 
+  changeColorBtn() {
+    this.setState(prevState => {
+      let newStyle;
+      const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const phoneRegex = /[0-9]{3}[0-9]{2}[0-9]{2}[0-9]{2}/;
+      if (
+        !!prevState.name &&
+        !!prevState.job &&
+        !!emailRegex.test(prevState.email) &&
+        !!prevState.phone &&
+        !!prevState.linkedin &&
+        !!prevState.github &&
+        !!phoneRegex.test(prevState.phone)
+      ) {
+        newStyle = "";
+      } else {
+        newStyle = "filter";
+      }
+      return {
+        shareButton: newStyle,
+      };
+    });
+  }
+
   sendRequest(json) {
-    fetch("https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/", {
-      method: "POST",
-      body: JSON.stringify(json),
-      headers: {
-        "content-type": "application/json",
-      },
-    })
-      .then(function(resp) {
-        return resp.json();
-      })
+    createCardFetch(json)
       .then(data => {
         this.setState({
           url: data.cardURL,
@@ -85,69 +99,19 @@ class App extends React.Component {
 
   handleFetch(ev) {
     ev.preventDefault();
-    this.setState({
-      isLoading: true,
-      url: "",
-    });
-    this.sendRequest(this.state);
-  }
-
-  fileSelectedHandler(ev) {
-    let myFile = ev.target.files[0];
-    this.fr.addEventListener("load", this.fileUploadHandler);
-    this.fr.readAsDataURL(myFile);
-  }
-
-  fileUploadHandler() {
-    const imageData = this.fr.result;
-    this.setState({
-      photo: imageData,
-      url: "",
-    });
-    this.changeColorBtn();
-  }
-
-  handleInputChange(ev) {
-    const id = ev.target.id;
-    const value = ev.target.value;
-    this.setState({
-      [id]: value,
-      url: "",
-    });
-    this.changeColorBtn();
-  }
-
-  // isFilledRight() {
-  //   this.setState((prevState, props) => {
-  //     debugger
-  //     if (!!prevState.name === true && !!prevState.job === true && !!prevState.email === true && !!prevState.phone === true && !!prevState.linkedin === true && !!prevState.github === true && !!prevState.photo === true) {
-  //       return true
-  //     } else {
-  //       return false
-  //     }
-  //   });
-  // }
-
-  changeColorBtn() {
-    this.setState((prevState, props) => {
-      let newStyle;
-      if (
-        !!prevState.name === true &&
-        !!prevState.job === true &&
-        !!prevState.email === true &&
-        !!prevState.phone === true &&
-        !!prevState.linkedin === true &&
-        !!prevState.github === true &&
-        !!prevState.photo === true
-      ) {
-        newStyle = "";
-      } else {
-        newStyle = "filter";
-      }
-      return {
-        shareButton: newStyle,
-      };
-    });
+    if (this.state.shareButton === "") {
+      this.setState({
+        isLoading: true,
+        url: "",
+      });
+      this.sendRequest(this.state);
+    } else {
+      this.setState({
+        errorMessage:
+          "Por favor, cumplimente correctamente los siguientes campos del formulario:",
+      });
+      console.log("vamos bien");
+    }
   }
 
   componentDidUpdate() {
@@ -177,9 +141,8 @@ class App extends React.Component {
                     github={this.state.github}
                   />
                   <Form
-                    paletteHandler={this.paletteHandler}
                     palette={this.state.palette}
-                    handleInputChange={this.handleInputChange}
+                    inputChangeHandler={this.inputChangeHandler}
                     name={this.state.name}
                     job={this.state.job}
                     email={this.state.email}
@@ -187,12 +150,12 @@ class App extends React.Component {
                     linkedin={this.state.linkedin}
                     github={this.state.github}
                     photo={this.state.photo}
-                    fileSelectedHandler={this.fileSelectedHandler}
                     handleFetch={this.handleFetch}
                     url={this.state.url}
                     loading={this.state.isLoading}
                     shareURL={this.state.url}
                     shareValue={this.state.shareButton}
+                    errorMessage={this.state.errorMessage}
                   />
                 </main>
               </>

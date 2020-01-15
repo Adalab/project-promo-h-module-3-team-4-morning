@@ -9,7 +9,7 @@ class Design extends React.Component {
         <h3 className="design-box__title">Colores</h3>
         <div className="design-box__themes">
           <Palette
-            paletteHandler={this.props.paletteHandler}
+            inputChangeHandler={this.props.inputChangeHandler}
             htmlFor="1"
             checked={this.props.palette === "1"}
             value="1"
@@ -18,7 +18,7 @@ class Design extends React.Component {
             color3="colors colors--green3"
           />
           <Palette
-            paletteHandler={this.props.paletteHandler}
+            inputChangeHandler={this.props.inputChangeHandler}
             htmlFor="2"
             checked={this.props.palette === "2"}
             value="2"
@@ -27,7 +27,7 @@ class Design extends React.Component {
             color3="colors colors--red3"
           />
           <Palette
-            paletteHandler={this.props.paletteHandler}
+            inputChangeHandler={this.props.inputChangeHandler}
             htmlFor="3"
             checked={this.props.palette === "3"}
             value="3"

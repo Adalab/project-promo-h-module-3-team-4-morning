@@ -8,7 +8,7 @@ class Fill extends React.Component {
     return (
       <fieldset className="fill">
         <Input
-          handleInputChange={this.props.handleInputChange}
+          inputChangeHandler={this.props.inputChangeHandler}
           value={this.props.name}
           htmlFor="name"
           type="text"
@@ -17,7 +17,7 @@ class Fill extends React.Component {
           placeholder="Ej: Sally Jill"
         />
         <Input
-          handleInputChange={this.props.handleInputChange}
+          inputChangeHandler={this.props.inputChangeHandler}
           value={this.props.job}
           htmlFor="job"
           type="text"
@@ -26,11 +26,12 @@ class Fill extends React.Component {
           placeholder="Ej: Front-end unicorn"
         />
         <Image
+          inputChangeHandler={this.props.inputChangeHandler}
           photo={this.props.photo}
           fileSelectedHandler={this.props.fileSelectedHandler}
         />
         <Input
-          handleInputChange={this.props.handleInputChange}
+          inputChangeHandler={this.props.inputChangeHandler}
           value={this.props.email}
           htmlFor="email"
           type="email"
@@ -39,7 +40,7 @@ class Fill extends React.Component {
           placeholder="Ej: sally-hill@gmail.com"
         />
         <Input
-          handleInputChange={this.props.handleInputChange}
+          inputChangeHandler={this.props.inputChangeHandler}
           value={this.props.phone}
           htmlFor="phone"
           type="tel"
@@ -49,7 +50,7 @@ class Fill extends React.Component {
           pattern="[0-9]{9}"
         />
         <Input
-          handleInputChange={this.props.handleInputChange}
+          inputChangeHandler={this.props.inputChangeHandler}
           value={this.props.linkedin}
           htmlFor="linkedin"
           type="text"
@@ -58,7 +59,7 @@ class Fill extends React.Component {
           placeholder="Ej: sally.hill"
         />
         <Input
-          handleInputChange={this.props.handleInputChange}
+          inputChangeHandler={this.props.inputChangeHandler}
           value={this.props.github}
           htmlFor="github"
           type="text"

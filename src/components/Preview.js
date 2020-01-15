@@ -2,6 +2,11 @@ import React from "react";
 import "../stylesheets/preview.scss";
 import Icon from "./Icon";
 import defaultImage from "../images/default-profile.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt, faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedinIn, faGithubAlt } from '@fortawesome/free-brands-svg-icons';
+
 
 class Preview extends React.Component {
   render() {
@@ -9,7 +14,8 @@ class Preview extends React.Component {
       <section className="preview">
         <div className="preview__container">
           <button onClick={this.props.resetHandler} className="preview__reset">
-            <i className="far fa-trash-alt preview__icon"></i>reset
+            <FontAwesomeIcon className="preview__icon" icon={faTrashAlt} />
+            reset
           </button>
           <article className={`preview__display palette${this.props.palette}`}>
             <header className="preview__display--header">
@@ -21,10 +27,10 @@ class Preview extends React.Component {
             <div className="preview__display--img" style={{ backgroundImage: `url(${this.props.photo || defaultImage})` }}></div>
             <footer className="preview__display--footer menu">
               <ul className="menu__list">
-                <Icon href={`mailto:${this.props.email}`} classLi={`menu__items--email ${this.props.email ? '' : 'filter'}`} classI="far fa-envelope" />
-                <Icon href={`tel:+${this.props.phone}`} classI="fas fa-mobile-alt" classLi={`menu__items--phone ${this.props.phone ? '' : 'filter'}`} />
-                <Icon href={`https://www.linkedin.com/in/${this.props.linkedin}`} classLi={`menu__items--linkedin ${this.props.linkedin ? '' : 'filter'}`} classI="fab fa-linkedin-in" />
-                <Icon href={`https://www.github.com/${this.props.github}`} classLi={`menu__items--github ${this.props.github ? '' : 'filter'}`} classI="fab fa-github-alt" />
+                <Icon href={`tel:+${this.props.phone}`} icon={faMobileAlt} classLi={`menu__items--phone ${this.props.phone ? '' : 'filter'}`} />
+                <Icon href={`mailto:${this.props.email}`} icon={faEnvelope} classLi={`menu__items--email ${this.props.email ? '' : 'filter'}`} />
+                <Icon href={`https://www.linkedin.com/in/${this.props.linkedin}`} icon={faLinkedinIn} classLi={`menu__items--linkedin ${this.props.linkedin ? '' : 'filter'}`} />
+                <Icon href={`https://www.github.com/${this.props.github}`} icon={faGithubAlt} classLi={`menu__items--github ${this.props.github ? '' : 'filter'}`} />
               </ul>
             </footer>
           </article>

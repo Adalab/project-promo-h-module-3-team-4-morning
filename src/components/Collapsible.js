@@ -1,46 +1,26 @@
 import React from "react";
 import "../stylesheets/collapsibles.scss";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
+
 
 class Collapsible extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      collapsible: "closed",
-    };
-    this.handleClose = this.handleClose.bind(this);
-  }
-
-  handleClose() {
-    // console.log("abrir y cerrar", this.state);
-    this.setState((prevState, props) => {
-      let nextStyling;
-      if (prevState.collapsible === "closed") {
-        nextStyling = "open";
-      } else {
-        nextStyling = "closed";
-      }
-      return {
-        collapsible: nextStyling,
-        design: nextStyling,
-        fill: nextStyling,
-        share: nextStyling,
-      };
-    });
-  }
-
   render() {
     return (
-      <div className={this.state.collapsible}>
-        <legend className="collapsible" onClick={this.handleClose}>
+      <section id={this.props.id} className={this.props.collapsibleId === this.props.id ? 'open' : ''}>
+        <legend onClick={this.props.handleCollapsibleAction} className='collapsible' id={this.props.id}>
           <div className="collapsible__left">
-            <i className={`collapsible__left--fav ${this.props.classIcon}`}></i>
+            <div className="collapsible__left--fav ">
+              <FontAwesomeIcon icon={this.props.icon} />
+            </div>
             <h2 className="collapsible__left--title">{this.props.title}</h2>
           </div>
-          <i className="collapsible--arrow fas fa-angle-down "></i>
+          <FontAwesomeIcon className="collapsible--arrow" icon={faChevronUp} />
         </legend>
-        <div className="collapsible--window">{this.props.children}</div>
-      </div>
+        <div className="collapsible--window">
+          {this.props.children}
+        </div>
+      </section>
     );
   }
 }
