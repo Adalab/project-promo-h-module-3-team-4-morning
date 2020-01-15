@@ -68,7 +68,7 @@ class App extends Component {
       if (!!prevState.name &&
         !!prevState.job &&
         !!emailRegex.test(prevState.email) &&
-        !!prevState.phone &&
+        !!prevState.photo &&
         !!prevState.linkedin &&
         !!prevState.github &&
         !!phoneRegex.test(prevState.phone)) {
