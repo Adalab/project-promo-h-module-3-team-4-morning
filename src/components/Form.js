@@ -4,9 +4,8 @@ import Collapsible from "./Collapsible";
 import Design from "./Design";
 import Fill from "./Fill";
 import Share from "./Share";
-import { faKeyboard, faShareAlt } from '@fortawesome/free-solid-svg-icons';
-import { faObjectUngroup } from '@fortawesome/free-regular-svg-icons';
-
+import { faKeyboard, faShareAlt } from "@fortawesome/free-solid-svg-icons";
+import { faObjectUngroup } from "@fortawesome/free-regular-svg-icons";
 
 class Form extends React.Component {
   constructor(props) {
@@ -33,16 +32,41 @@ class Form extends React.Component {
   }
 
   render() {
+    const {
+      text,
+      type,
+      htmlFor,
+      name,
+      placeholder,
+      pattern,
+      value,
+      collapsibleId,
+      inputChangeHandler,
+      palette,
+    } = this.props;
+
     return (
       <section className="form">
-        <form  >
-          <Collapsible title="Diseña" icon={faObjectUngroup} id='C1' collapsibleId={this.state.collapsibleId} handleCollapsibleAction={this.handleCollapsibleAction} >
+        <form>
+          <Collapsible
+            title="Diseña"
+            icon={faObjectUngroup}
+            id="C1"
+            collapsibleId={this.state.collapsibleId}
+            handleCollapsibleAction={this.handleCollapsibleAction}
+          >
             <Design
               inputChangeHandler={this.props.inputChangeHandler}
               palette={this.props.palette}
             />
           </Collapsible>
-          <Collapsible title="Rellena" icon={faKeyboard} id='C2' collapsibleId={this.state.collapsibleId} handleCollapsibleAction={this.handleCollapsibleAction}>
+          <Collapsible
+            title="Rellena"
+            icon={faKeyboard}
+            id="C2"
+            collapsibleId={this.state.collapsibleId}
+            handleCollapsibleAction={this.handleCollapsibleAction}
+          >
             <Fill
               name={this.props.name}
               job={this.props.job}
@@ -55,7 +79,13 @@ class Form extends React.Component {
               fileSelectedHandler={this.props.fileSelectedHandler}
             />
           </Collapsible>
-          <Collapsible title="Comparte" icon={faShareAlt} id='C3' collapsibleId={this.state.collapsibleId} handleCollapsibleAction={this.handleCollapsibleAction}>
+          <Collapsible
+            title="Comparte"
+            icon={faShareAlt}
+            id="C3"
+            collapsibleId={this.state.collapsibleId}
+            handleCollapsibleAction={this.handleCollapsibleAction}
+          >
             <Share
               fetchFunction={this.props.fetchFunction}
               handleFetch={this.props.handleFetch}
@@ -74,7 +104,7 @@ class Form extends React.Component {
             />
           </Collapsible>
         </form>
-      </section >
+      </section>
     );
   }
 }

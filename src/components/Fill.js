@@ -5,11 +5,22 @@ import Image from "./Image";
 
 class Fill extends React.Component {
   render() {
+    const {
+      inputChangeHandler,
+      name,
+      job,
+      photo,
+      email,
+      phone,
+      linkedin,
+      github,
+      fileSelectedHandler,
+    } = this.props;
     return (
       <fieldset className="fill">
         <Input
-          inputChangeHandler={this.props.inputChangeHandler}
-          value={this.props.name}
+          inputChangeHandler={inputChangeHandler}
+          value={name}
           htmlFor="name"
           type="text"
           text="Nombre completo"
@@ -17,8 +28,8 @@ class Fill extends React.Component {
           placeholder="Ej: Sally Jill"
         />
         <Input
-          inputChangeHandler={this.props.inputChangeHandler}
-          value={this.props.job}
+          inputChangeHandler={inputChangeHandler}
+          value={job}
           htmlFor="job"
           type="text"
           text="Puesto"
@@ -26,13 +37,13 @@ class Fill extends React.Component {
           placeholder="Ej: Front-end unicorn"
         />
         <Image
-          inputChangeHandler={this.props.inputChangeHandler}
-          photo={this.props.photo}
-          fileSelectedHandler={this.props.fileSelectedHandler}
+          inputChangeHandler={inputChangeHandler}
+          photo={photo}
+          fileSelectedHandler={fileSelectedHandler}
         />
         <Input
-          inputChangeHandler={this.props.inputChangeHandler}
-          value={this.props.email}
+          inputChangeHandler={inputChangeHandler}
+          value={email}
           htmlFor="email"
           type="email"
           text="Email"
@@ -40,8 +51,8 @@ class Fill extends React.Component {
           placeholder="Ej: sally-hill@gmail.com"
         />
         <Input
-          inputChangeHandler={this.props.inputChangeHandler}
-          value={this.props.phone}
+          inputChangeHandler={inputChangeHandler}
+          value={phone}
           htmlFor="phone"
           type="tel"
           text="Teléfono"
@@ -50,8 +61,8 @@ class Fill extends React.Component {
           pattern="[0-9]{9}"
         />
         <Input
-          inputChangeHandler={this.props.inputChangeHandler}
-          value={this.props.linkedin}
+          inputChangeHandler={inputChangeHandler}
+          value={linkedin}
           htmlFor="linkedin"
           type="text"
           text="Linkedin"
@@ -59,8 +70,8 @@ class Fill extends React.Component {
           placeholder="Ej: sally.hill"
         />
         <Input
-          inputChangeHandler={this.props.inputChangeHandler}
-          value={this.props.github}
+          inputChangeHandler={inputChangeHandler}
+          value={github}
           htmlFor="github"
           type="text"
           text="Github"
