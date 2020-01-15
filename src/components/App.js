@@ -11,7 +11,7 @@ import localStorage from "../localStorage/";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    const localStorageData = localStorage.get('user', {
+    const localStorageData = localStorage.get("user", {
       photo: "",
       name: "",
       job: "",
@@ -21,10 +21,9 @@ class App extends React.Component {
       github: "",
       palette: "1",
       shareButton: "filter",
-      url: '',
-      isLoading: true
-
-    })
+      url: "",
+      isLoading: true,
+    });
     this.fr = new FileReader();
     this.state = localStorageData;
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
@@ -40,8 +39,7 @@ class App extends React.Component {
     const id = ev.target.id;
     this.setState({
       palette: id,
-      url: '',
-
+      url: "",
     });
   }
 
@@ -55,40 +53,42 @@ class App extends React.Component {
       linkedin: "",
       github: "",
       palette: "1",
-      url: '',
+      url: "",
       shareButton: "filter",
-      isLoading: true
+      isLoading: true,
     });
     this.changeColorBtn();
   }
 
   sendRequest(json) {
-
-    fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
-      method: 'POST',
+    fetch("https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/", {
+      method: "POST",
       body: JSON.stringify(json),
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
     })
-      .then(function (resp) { return resp.json(); })
+      .then(function(resp) {
+        return resp.json();
+      })
       .then(data => {
         this.setState({
           url: data.cardURL,
-          isLoading: false
-        })
-        return data.cardURL
-      }
-      )
-      .catch(function (error) { console.log(error); });
+          isLoading: false,
+        });
+        return data.cardURL;
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 
   handleFetch(ev) {
     ev.preventDefault();
     this.setState({
       isLoading: true,
-      url: ''
-    })
+      url: "",
+    });
     this.sendRequest(this.state);
   }
 
@@ -102,7 +102,7 @@ class App extends React.Component {
     const imageData = this.fr.result;
     this.setState({
       photo: imageData,
-      url: '',
+      url: "",
     });
     this.changeColorBtn();
   }
@@ -112,7 +112,7 @@ class App extends React.Component {
     const value = ev.target.value;
     this.setState({
       [id]: value,
-      url: '',
+      url: "",
     });
     this.changeColorBtn();
   }
@@ -131,19 +131,27 @@ class App extends React.Component {
   changeColorBtn() {
     this.setState((prevState, props) => {
       let newStyle;
-      if (!!prevState.name === true && !!prevState.job === true && !!prevState.email === true && !!prevState.phone === true && !!prevState.linkedin === true && !!prevState.github === true && !!prevState.photo === true) {
+      if (
+        !!prevState.name === true &&
+        !!prevState.job === true &&
+        !!prevState.email === true &&
+        !!prevState.phone === true &&
+        !!prevState.linkedin === true &&
+        !!prevState.github === true &&
+        !!prevState.photo === true
+      ) {
         newStyle = "";
       } else {
         newStyle = "filter";
       }
       return {
-        shareButton: newStyle
+        shareButton: newStyle,
       };
     });
   }
 
   componentDidUpdate() {
-    localStorage.set('user', this.state);
+    localStorage.set("user", this.state);
   }
 
   render() {
@@ -185,7 +193,6 @@ class App extends React.Component {
                     loading={this.state.isLoading}
                     shareURL={this.state.url}
                     shareValue={this.state.shareButton}
-
                   />
                 </main>
               </>
