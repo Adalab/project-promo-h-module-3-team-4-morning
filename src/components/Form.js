@@ -4,9 +4,8 @@ import Collapsible from "./Collapsible";
 import Design from "./Design";
 import Fill from "./Fill";
 import Share from "./Share";
-import { faKeyboard } from '@fortawesome/free-solid-svg-icons';
+import { faKeyboard, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { faObjectUngroup } from '@fortawesome/free-regular-svg-icons';
-import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 class Form extends React.Component {
