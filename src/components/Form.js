@@ -31,6 +31,7 @@ class Form extends React.Component {
       }
     });
   }
+
   render() {
     return (
       <section className="form">
@@ -49,7 +50,8 @@ class Form extends React.Component {
               phone={this.props.phone}
               linkedin={this.props.linkedin}
               github={this.props.github}
-              handleInputChange={this.props.handleInputChange}
+              // handleInputChange={this.props.handleInputChange}
+              inputChangeHandler={this.props.inputChangeHandler}
               photo={this.props.photo}
               fileSelectedHandler={this.props.fileSelectedHandler}
             />

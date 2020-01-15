@@ -27,24 +27,32 @@ class App extends React.Component {
     })
     this.fr = new FileReader();
     this.state = localStorageData;
-    this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
-    this.fileUploadHandler = this.fileUploadHandler.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.paletteHandler = this.paletteHandler.bind(this);
+    // this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
+    // this.fileUploadHandler = this.fileUploadHandler.bind(this);
+    this.inputChangeHandler = this.inputChangeHandler.bind(this);
+    // this.paletteHandler = this.paletteHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
     this.handleFetch = this.handleFetch.bind(this);
     this.changeColorBtn = this.changeColorBtn.bind(this);
   }
 
-  paletteHandler(ev) {
-    const id = ev.target.id;
+  // paletteHandler(ev) {
+  //   const id = ev.target.id;
+  //   this.setState({
+  //     palette: id,
+  //     url: '',
+  //     errorMessage: ''
+  //   });
+  // }
+
+  inputChangeHandler(data) {
     this.setState({
-      palette: id,
+      [data.id]: data.value,
       url: '',
       errorMessage: ''
-    });
+    })
+    this.changeColorBtn();
   }
-
 
   resetHandler() {
     this.setState({
@@ -63,9 +71,6 @@ class App extends React.Component {
     this.changeColorBtn();
   }
 
-
-
-
   fileSelectedHandler(ev) {
     let myFile = ev.target.files[0];
     this.fr.addEventListener("load", this.fileUploadHandler);
@@ -82,24 +87,15 @@ class App extends React.Component {
     this.changeColorBtn();
   }
 
-  handleInputChange(ev) {
-    const id = ev.target.id;
-    const value = ev.target.value;
-    this.setState({
-      [id]: value,
-      url: '',
-      errorMessage: ''
-    });
-    this.changeColorBtn();
-  }
-
-  // isValidEmail() {
-  //   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  //   if (!emailRegex.test(this.state.email)) {
-  //     return false
-  //   } else {
-  //     return true
-  //   }
+  // handleInputChange(ev) {
+  //   const id = ev.target.id;
+  //   const value = ev.target.value;
+  //   this.setState({
+  //     [id]: value,
+  //     url: '',
+  //     errorMessage: ''
+  //   });
+  //   this.changeColorBtn();
   // }
 
   changeColorBtn() {
@@ -192,7 +188,8 @@ class App extends React.Component {
                   <Form
                     paletteHandler={this.paletteHandler}
                     palette={this.state.palette}
-                    handleInputChange={this.handleInputChange}
+                    // handleInputChange={this.handleInputChange}
+                    inputChangeHandler={this.inputChangeHandler}
                     name={this.state.name}
                     job={this.state.job}
                     email={this.state.email}
