@@ -10,18 +10,39 @@ import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 class Form extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      collapsibleId: "C1",
+    };
+    this.handleCollapsibleAction = this.handleCollapsibleAction.bind(this);
+  }
 
+  handleCollapsibleAction(ev) {
+    let clickedId = ev.target.id;
+    this.setState((prevState, props) => {
+      if (prevState.collapsibleId === clickedId) {
+        return {
+          collapsibleId: null,
+        };
+      } else {
+        return {
+          collapsibleId: clickedId,
+        };
+      }
+    });
+  }
   render() {
     return (
       <section className="form">
         <form  >
-          <Collapsible title="Diseña" icon={faObjectUngroup}>
+          <Collapsible title="Diseña" icon={faObjectUngroup} id='C1' collapsibleId={this.state.collapsibleId} handleCollapsibleAction={this.handleCollapsibleAction} >
             <Design
               paletteHandler={this.props.paletteHandler}
               palette={this.props.palette}
             />
           </Collapsible>
-          <Collapsible title="Rellena" icon={faKeyboard}>
+          <Collapsible title="Rellena" icon={faKeyboard} id='C2' collapsibleId={this.state.collapsibleId} handleCollapsibleAction={this.handleCollapsibleAction}>
             <Fill
               name={this.props.name}
               job={this.props.job}
@@ -34,7 +55,7 @@ class Form extends React.Component {
               fileSelectedHandler={this.props.fileSelectedHandler}
             />
           </Collapsible>
-          <Collapsible title="Comparte" icon={faShareAlt}>
+          <Collapsible title="Comparte" icon={faShareAlt} id='C3' collapsibleId={this.state.collapsibleId} handleCollapsibleAction={this.handleCollapsibleAction}>
             <Share
               fetchFunction={this.props.fetchFunction}
               handleFetch={this.props.handleFetch}
@@ -42,6 +63,14 @@ class Form extends React.Component {
               loading={this.props.loading}
               shareValue={this.props.shareValue}
               shareURL={this.props.shareURL}
+              errorMessage={this.props.errorMessage}
+              name={this.props.name}
+              job={this.props.job}
+              email={this.props.email}
+              phone={this.props.phone}
+              linkedin={this.props.linkedin}
+              github={this.props.github}
+              photo={this.props.photo}
             />
           </Collapsible>
         </form>

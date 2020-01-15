@@ -22,8 +22,8 @@ class App extends React.Component {
       palette: "1",
       shareButton: "filter",
       url: '',
-      isLoading: ''
-
+      isLoading: '',
+      errorMessage: ''
     })
     this.fr = new FileReader();
     this.state = localStorageData;
@@ -41,9 +41,10 @@ class App extends React.Component {
     this.setState({
       palette: id,
       url: '',
-
+      errorMessage: ''
     });
   }
+
 
   resetHandler() {
     this.setState({
@@ -57,9 +58,73 @@ class App extends React.Component {
       palette: "1",
       url: '',
       shareButton: "filter",
+      errorMessage: ''
     });
     this.changeColorBtn();
   }
+
+
+
+
+  fileSelectedHandler(ev) {
+    let myFile = ev.target.files[0];
+    this.fr.addEventListener("load", this.fileUploadHandler);
+    this.fr.readAsDataURL(myFile);
+  }
+
+  fileUploadHandler() {
+    const imageData = this.fr.result;
+    this.setState({
+      photo: imageData,
+      url: '',
+      errorMessage: ''
+    });
+    this.changeColorBtn();
+  }
+
+  handleInputChange(ev) {
+    const id = ev.target.id;
+    const value = ev.target.value;
+    this.setState({
+      [id]: value,
+      url: '',
+      errorMessage: ''
+    });
+    this.changeColorBtn();
+  }
+
+  // isValidEmail() {
+  //   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  //   if (!emailRegex.test(this.state.email)) {
+  //     return false
+  //   } else {
+  //     return true
+  //   }
+  // }
+
+  changeColorBtn() {
+    this.setState((prevState) => {
+      let newStyle;
+      const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const phoneRegex = /[0-9]{3}[0-9]{2}[0-9]{2}[0-9]{2}/;
+      if (!!prevState.name &&
+        !!prevState.job &&
+        !!emailRegex.test(prevState.email) &&
+        !!prevState.phone &&
+        !!prevState.linkedin &&
+        !!prevState.github &&
+        !!phoneRegex.test(prevState.phone)) {
+        newStyle = "";
+      } else {
+        newStyle = "filter";
+
+      }
+      return {
+        shareButton: newStyle
+      };
+    });
+  }
+
 
   sendRequest(json) {
 
@@ -84,61 +149,18 @@ class App extends React.Component {
 
   handleFetch(ev) {
     ev.preventDefault();
-    this.setState({
-      isLoading: true,
-      url: ''
-    })
-    this.sendRequest(this.state);
-  }
-
-  fileSelectedHandler(ev) {
-    let myFile = ev.target.files[0];
-    this.fr.addEventListener("load", this.fileUploadHandler);
-    this.fr.readAsDataURL(myFile);
-  }
-
-  fileUploadHandler() {
-    const imageData = this.fr.result;
-    this.setState({
-      photo: imageData,
-      url: '',
-    });
-    this.changeColorBtn();
-  }
-
-  handleInputChange(ev) {
-    const id = ev.target.id;
-    const value = ev.target.value;
-    this.setState({
-      [id]: value,
-      url: '',
-    });
-    this.changeColorBtn();
-  }
-
-  // isFilledRight() {
-  //   this.setState((prevState, props) => {
-  //     debugger
-  //     if (!!prevState.name === true && !!prevState.job === true && !!prevState.email === true && !!prevState.phone === true && !!prevState.linkedin === true && !!prevState.github === true && !!prevState.photo === true) {
-  //       return true
-  //     } else {
-  //       return false
-  //     }
-  //   });
-  // }
-
-  changeColorBtn() {
-    this.setState((prevState, props) => {
-      let newStyle;
-      if (!!prevState.name === true && !!prevState.job === true && !!prevState.email === true && !!prevState.phone === true && !!prevState.linkedin === true && !!prevState.github === true && !!prevState.photo === true) {
-        newStyle = "";
-      } else {
-        newStyle = "filter";
-      }
-      return {
-        shareButton: newStyle
-      };
-    });
+    if (this.state.shareButton === '') {
+      this.setState({
+        isLoading: true,
+        url: ''
+      })
+      this.sendRequest(this.state);
+    } else {
+      this.setState({
+        errorMessage: 'Por favor, cumplimente correctamente los siguientes campos del formulario:'
+      })
+      console.log('vamos bien')
+    }
   }
 
   componentDidUpdate() {
@@ -184,6 +206,7 @@ class App extends React.Component {
                     loading={this.state.isLoading}
                     shareURL={this.state.url}
                     shareValue={this.state.shareButton}
+                    errorMessage={this.state.errorMessage}
                   />
                 </main>
               </>
