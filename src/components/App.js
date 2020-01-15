@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import "../stylesheets/app.scss";
 import Header from "./Header";
@@ -9,7 +9,7 @@ import Landing from "./Landing";
 import localStorage from "../localStorage/";
 import { createCardFetch } from "../services/Api";
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     const localStorageData = localStorage.get("user", {
@@ -106,11 +106,13 @@ class App extends React.Component {
       });
       this.sendRequest(this.state);
     } else {
+      alert(
+        "Por favor, cumplimente correctamente todos los campos del formulario",
+      );
       this.setState({
         errorMessage:
           "Por favor, cumplimente correctamente los siguientes campos del formulario:",
       });
-      console.log("vamos bien");
     }
   }
 

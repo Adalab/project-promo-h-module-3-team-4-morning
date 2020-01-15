@@ -9,5 +9,6 @@ const createCardFetch = (json) =>
         },
     })
         .then(function (resp) { return resp.json(); })
+        .then(function (myJson) { console.log(myJson); })
 
 export { createCardFetch };
