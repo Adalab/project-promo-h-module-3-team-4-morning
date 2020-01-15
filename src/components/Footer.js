@@ -2,6 +2,7 @@ import React from "react";
 import "../stylesheets/footer.scss";
 import logo from "../images/ECOME.png";
 import logoAdalab from "../images/logo-adalab.png";
+import PropTypes from "prop-types";
 
 class Footer extends React.Component {
   render() {
@@ -14,5 +15,10 @@ class Footer extends React.Component {
     );
   }
 }
+
+Footer.propTypes = {
+  logo: PropTypes.element,
+  logoAdalab: PropTypes.element
+};
 
 export default Footer;

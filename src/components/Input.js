@@ -1,5 +1,6 @@
 import React from "react";
 import "../stylesheets/input.scss";
+import PropTypes from "prop-types";
 
 class Input extends React.Component {
   render() {
@@ -13,5 +14,15 @@ class Input extends React.Component {
     );
   }
 }
+
+Input.propTypes = {
+  name: PropTypes.string,
+  job: PropTypes.string,
+  photo: PropTypes.element,
+  email: PropTypes.string,
+  phone: PropTypes.string,
+  linkedin: PropTypes.string,
+  github: PropTypes.string
+};
 
 export default Input;

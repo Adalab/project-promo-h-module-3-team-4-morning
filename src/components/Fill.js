@@ -2,6 +2,7 @@ import React from "react";
 import "../stylesheets/fill.scss";
 import Input from "./Input";
 import Image from "./Image";
+import PropTypes from "prop-types";
 
 class Fill extends React.Component {
   render() {
@@ -18,5 +19,17 @@ class Fill extends React.Component {
     );
   }
 }
+
+Fill.propTypes = {
+  handleInputChange: PropTypes.func,
+  name: PropTypes.string,
+  job: PropTypes.string,
+  photo: PropTypes.string,
+  fileSelectedHandler: PropTypes.func,
+  email: PropTypes.string,
+  phone: PropTypes.string,
+  linkedin: PropTypes.string,
+  github: PropTypes.string
+};
 
 export default Fill;
