@@ -138,21 +138,21 @@ class App extends Component {
                     github={this.state.github}
                   />
                   <Form
-                    palette={this.state.palette}
+                    state={this.state}
+                    // palette={this.state.palette}
                     inputChangeHandler={this.inputChangeHandler}
-                    name={this.state.name}
-                    job={this.state.job}
-                    email={this.state.email}
-                    phone={this.state.phone}
-                    linkedin={this.state.linkedin}
-                    github={this.state.github}
-                    photo={this.state.photo}
+                    // name={this.state.name}
+                    // job={this.state.job}
+                    // email={this.state.email}
+                    // phone={this.state.phone}
+                    // linkedin={this.state.linkedin}
+                    // github={this.state.github}
+                    // photo={this.state.photo}
                     handleFetch={this.handleFetch}
-                    url={this.state.url}
-                    loading={this.state.isLoading}
-                    shareURL={this.state.url}
-                    shareValue={this.state.shareButton}
-                    errorMessage={this.state.errorMessage}
+                  // url={this.state.url}
+                  // loading={this.state.isLoading}
+                  // shareValue={this.state.shareButton}
+                  // errorMessage={this.state.errorMessage}
                   />
                 </main>
               </>
