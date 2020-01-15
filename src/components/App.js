@@ -22,8 +22,8 @@ class App extends React.Component {
       palette: "1",
       shareButton: "filter",
       url: '',
-      isLoading: ''
-
+      isLoading: '',
+      errorMessage: ''
     })
     this.fr = new FileReader();
     this.state = localStorageData;
@@ -41,7 +41,7 @@ class App extends React.Component {
     this.setState({
       palette: id,
       url: '',
-
+      errorMessage: ''
     });
   }
 
@@ -58,9 +58,73 @@ class App extends React.Component {
       palette: "1",
       url: '',
       shareButton: "filter",
+      errorMessage: ''
     });
     this.changeColorBtn();
   }
+
+
+
+
+  fileSelectedHandler(ev) {
+    let myFile = ev.target.files[0];
+    this.fr.addEventListener("load", this.fileUploadHandler);
+    this.fr.readAsDataURL(myFile);
+  }
+
+  fileUploadHandler() {
+    const imageData = this.fr.result;
+    this.setState({
+      photo: imageData,
+      url: '',
+      errorMessage: ''
+    });
+    this.changeColorBtn();
+  }
+
+  handleInputChange(ev) {
+    const id = ev.target.id;
+    const value = ev.target.value;
+    this.setState({
+      [id]: value,
+      url: '',
+      errorMessage: ''
+    });
+    this.changeColorBtn();
+  }
+
+  // isValidEmail() {
+  //   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  //   if (!emailRegex.test(this.state.email)) {
+  //     return false
+  //   } else {
+  //     return true
+  //   }
+  // }
+
+  changeColorBtn() {
+    this.setState((prevState) => {
+      let newStyle;
+      const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const phoneRegex = /[0-9]{3}[0-9]{2}[0-9]{2}[0-9]{2}/;
+      if (!!prevState.name &&
+        !!prevState.job &&
+        !!emailRegex.test(prevState.email) &&
+        !!prevState.phone &&
+        !!prevState.linkedin &&
+        !!prevState.github &&
+        !!phoneRegex.test(prevState.phone)) {
+        newStyle = "";
+      } else {
+        newStyle = "filter";
+
+      }
+      return {
+        shareButton: newStyle
+      };
+    });
+  }
+
 
   sendRequest(json) {
 
@@ -85,67 +149,19 @@ class App extends React.Component {
 
   handleFetch(ev) {
     ev.preventDefault();
-    this.setState({
-      isLoading: true,
-      url: ''
-    })
-    this.sendRequest(this.state);
-  }
-
-  fileSelectedHandler(ev) {
-    let myFile = ev.target.files[0];
-    this.fr.addEventListener("load", this.fileUploadHandler);
-    this.fr.readAsDataURL(myFile);
-  }
-
-  fileUploadHandler() {
-    const imageData = this.fr.result;
-    this.setState({
-      photo: imageData,
-      url: '',
-    });
-    this.changeColorBtn();
-  }
-
-  handleInputChange(ev) {
-    const id = ev.target.id;
-    const value = ev.target.value;
-    this.setState({
-      [id]: value,
-      url: '',
-    });
-    this.changeColorBtn();
-  }
-
-  isValidEmail() {
-    const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!emailRegex.test(this.state.email)) {
-      return false
+    if (this.state.shareButton === '') {
+      this.setState({
+        isLoading: true,
+        url: ''
+      })
+      this.sendRequest(this.state);
     } else {
-      return true
+      // alert('Por favor cumplimente de forma correcta este formulario')
+      this.setState({
+        errorMessage: 'Por favor cumplimente de forma correcta este formulario'
+      })
+      console.log('vamos bien')
     }
-  }
-
-  changeColorBtn() {
-    this.setState((prevState) => {
-      let newStyle;
-      const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      const phoneRegex = /[0-9]{3}[0-9]{2}[0-9]{2}[0-9]{2}/;
-      if (!!prevState.name &&
-        !!prevState.job &&
-        !!emailRegex.test(prevState.email) &&
-        !!prevState.phone &&
-        !!prevState.linkedin &&
-        !!prevState.github &&
-        !!phoneRegex.test(prevState.phone)) {
-        newStyle = "";
-      } else {
-        newStyle = "filter";
-      }
-      return {
-        shareButton: newStyle
-      };
-    });
   }
 
   componentDidUpdate() {
@@ -153,7 +169,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.isValidEmail())
     return (
       <div className="App">
         <Switch>
@@ -192,6 +207,7 @@ class App extends React.Component {
                     loading={this.state.isLoading}
                     shareURL={this.state.url}
                     shareValue={this.state.shareButton}
+                    errorMessage={this.state.errorMessage}
                   />
                 </main>
               </>

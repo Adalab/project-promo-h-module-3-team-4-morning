@@ -8,12 +8,14 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 class Share extends React.Component {
   render() {
+    console.log(this.props)
     const twitterText = 'Mira que tarjeta más chula me acabo de crear! Esta es mi tarjeta: '
     const loadingElement = this.props.loading ? (<div className="loader__container"><Loader className="loader" type="ThreeDots" color="grey" height="100" width="100" /></div>) : null;
-
+    const errorMessage = this.props.errorMessage ? <p>Cumplimente de forma correcta el Formulario</p> : null;
     const twitterBtn = this.props.shareURL
       ? (<fieldset className={`twitter `}>
         <h2 className="twitter__title">La tarjeta ha sido creada:</h2>
+        {errorMessage}
         <a className="twitter__link " target="_blank" rel="noopener noreferrer" href={this.props.shareURL}>{this.props.shareURL}</a>
         <button className="twitter__button ">
           <a href={`https://twitter.com/intent/tweet?text=${twitterText}${this.props.shareURL}`} target="_blank" rel="noopener noreferrer" className="twitter__link2" >
@@ -24,11 +26,12 @@ class Share extends React.Component {
 
 
     return (
-      <fieldset className="share">
+      <fieldset className="share" >
         <button onClick={this.props.handleFetch} type="submit" className={`share__btn ${this.props.shareValue}`}>
           <FontAwesomeIcon className="share__icon" icon={faAddressCard} />
           Crear tarjeta
         </button>
+        {errorMessage}
         {loadingElement}
         {twitterBtn}
       </fieldset>

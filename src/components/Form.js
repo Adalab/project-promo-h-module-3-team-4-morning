@@ -63,6 +63,7 @@ class Form extends React.Component {
               loading={this.props.loading}
               shareValue={this.props.shareValue}
               shareURL={this.props.shareURL}
+              errorMessage={this.props.errorMessage}
             />
           </Collapsible>
         </form>
