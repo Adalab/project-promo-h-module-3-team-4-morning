@@ -11,9 +11,6 @@ const Share = props => {
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const phoneRegex = /[0-9]{3}[0-9]{2}[0-9]{2}[0-9]{2}/;
   const twitterText = "Mira que tarjeta más chula me acabo de crear! Esta es mi tarjeta: ";
-  if (loading === true) {
-    debugger;
-  }
   const loadingElement = loading ? (
     <div className="loader__container">
       <Loader className="loader" type="ThreeDots" color="grey" height="100" width="100" />
