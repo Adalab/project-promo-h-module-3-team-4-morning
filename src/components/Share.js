@@ -8,6 +8,8 @@ import PropTypes from "prop-types";
 
 const Share = props => {
   const { loading, errorMessage, url, handleFetch, name, job, photo, phone, email, linkedin, github, shareValue } = props;
+  const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const phoneRegex = /[0-9]{3}[0-9]{2}[0-9]{2}[0-9]{2}/;
   const twitterText = "Mira que tarjeta más chula me acabo de crear! Esta es mi tarjeta: ";
   if (loading === true) {
     debugger;
@@ -44,8 +46,8 @@ const Share = props => {
       {!name && !!errorMessage && <li>Nombre completo</li>}
       {!job && !!errorMessage && <li>Puesto</li>}
       {!photo && !!errorMessage && <li>Imagen de perfil</li>}
-      {!email && !!errorMessage && <li>Email</li>}
-      {!phone && !!errorMessage && <li>Teléfono</li>}
+      {!emailRegex.test(email) && !!errorMessage && <li>Email</li>}
+      {!phoneRegex.test(phone) && !!errorMessage && <li>Teléfono</li>}
       {!linkedin && !!errorMessage && <li>LinkedIn</li>}
       {!github && !!errorMessage && <li>Github</li>}
       {loadingElement}
