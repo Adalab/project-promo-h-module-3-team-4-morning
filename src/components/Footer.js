@@ -2,7 +2,6 @@ import React from "react";
 import "../stylesheets/footer.scss";
 import logo from "../images/reackers-logo.png";
 import logoAdalab from "../images/logo-adalab.png";
-import PropTypes from "prop-types";
 
 const Footer = () => {
   return (
@@ -12,12 +11,6 @@ const Footer = () => {
       <img className="footer__logo" src={logoAdalab} alt="logo adalab" title="logo adalab" />
     </footer>
   );
-};
-
-
-Footer.propTypes = {
-  logo: PropTypes.element,
-  logoAdalab: PropTypes.element
 };
 
 export default Footer;

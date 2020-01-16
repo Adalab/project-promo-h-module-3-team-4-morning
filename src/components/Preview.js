@@ -39,4 +39,16 @@ const Preview = props => {
   );
 };
 
+Preview.propTypes = {
+  resetHandler: PropTypes.func.isRequired,
+  palette: PropTypes.string.isRequired,
+  photo: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  job: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
+  linkedin: PropTypes.string.isRequired,
+  github: PropTypes.string.isRequired
+};
+
 export default Preview;

@@ -21,13 +21,13 @@ const Input = props => {
 };
 
 Input.propTypes = {
-  name: PropTypes.string,
-  job: PropTypes.string,
-  photo: PropTypes.element,
-  email: PropTypes.string,
-  phone: PropTypes.string,
-  linkedin: PropTypes.string,
-  github: PropTypes.string
+  inputChangeHandler: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  htmlFor: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired
 };
 
 export default Input;

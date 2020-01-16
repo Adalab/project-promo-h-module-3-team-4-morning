@@ -54,16 +54,9 @@ class Form extends React.Component {
 }
 
 Form.propTypes = {
-  paletteHandler: PropTypes.func,
-  palette: PropTypes.string,
-  handleFetch: PropTypes.func,
-  url: PropTypes.string,
-  loading: PropTypes.bool,
-  shareValue: PropTypes.string,
-  shareURL: PropTypes.string,
-  errorMessage: PropTypes.string,
-  handleInputChange: PropTypes.func,
-  fileSelectedHandler: PropTypes.func
+  handleFetch: PropTypes.func.isRequired,
+  state: PropTypes.object.isRequired,
+  inputChangeHandler: PropTypes.func.isRequired
 };
 
 export default Form;

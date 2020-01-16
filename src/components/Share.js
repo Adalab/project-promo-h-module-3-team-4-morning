@@ -52,13 +52,18 @@ const Share = props => {
 };
 
 Share.propTypes = {
-  defaultImage: PropTypes.string,
   loading: PropTypes.bool,
   errorMessage: PropTypes.string,
-  loadingElement: PropTypes.string,
-  twitterBtn: PropTypes.string,
   shareValue: PropTypes.string,
-  handleFetch: PropTypes.func
+  url: PropTypes.string.isRequired,
+  handleFetch: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  job: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
+  linkedin: PropTypes.string.isRequired,
+  github: PropTypes.string.isRequired,
+  photo: PropTypes.string.isRequired
 };
 
 export default Share;

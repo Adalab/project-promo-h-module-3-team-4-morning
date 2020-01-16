@@ -19,8 +19,8 @@ const Design = props => {
 };
 
 Design.propTypes = {
-  paletteHandler: PropTypes.func,
-  palette: PropTypes.string
+  inputChangeHandler: PropTypes.func.isRequired,
+  palette: PropTypes.string.isRequired
 };
 
 export default Design;

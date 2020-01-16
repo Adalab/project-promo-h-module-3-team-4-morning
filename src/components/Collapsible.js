@@ -24,11 +24,11 @@ const Collapsible = props => {
 };
 
 Collapsible.propTypes = {
-  id: PropTypes.string,
-  collapsibleId: PropTypes.string,
-  handleCollapsibleAction: PropTypes.func,
-  title: PropTypes.string,
-  children: PropTypes.object
+  id: PropTypes.string.isRequired,
+  collapsibleId: PropTypes.string.isRequired,
+  handleCollapsibleAction: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.object.isRequired
 };
 
 export default Collapsible;

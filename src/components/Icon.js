@@ -15,11 +15,9 @@ const Icon = props => {
 };
 
 Icon.propTypes = {
-  classLi: PropTypes.string,
-  classA: PropTypes.string,
-  classI: PropTypes.string,
-  href: PropTypes.string,
-  icon: PropTypes.object
+  classLi: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+  icon: PropTypes.object.isRequired
 };
 
 export default Icon;

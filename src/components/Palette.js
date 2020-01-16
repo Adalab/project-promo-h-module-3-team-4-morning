@@ -26,13 +26,13 @@ const Palette = props => {
 };
 
 Palette.propTypes = {
-  htmlFor: PropTypes.string,
-  inputChangeHandler: PropTypes.func,
-  checked: PropTypes.bool,
-  value: PropTypes.string,
-  color1: PropTypes.string,
-  color2: PropTypes.string,
-  color3: PropTypes.string
+  htmlFor: PropTypes.string.isRequired,
+  inputChangeHandler: PropTypes.func.isRequired,
+  checked: PropTypes.bool.isRequired,
+  value: PropTypes.string.isRequired,
+  color1: PropTypes.string.isRequired,
+  color2: PropTypes.string.isRequired,
+  color3: PropTypes.string.isRequired
 };
 
 export default Palette;

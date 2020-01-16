@@ -47,10 +47,8 @@ class Image extends Component {
 }
 
 Image.propTypes = {
-  handleClick: PropTypes.string,
-  fileSelectedHandler: PropTypes.func,
-  fileInput: PropTypes.string,
-  photo: PropTypes.string
+  photo: PropTypes.string.isRequired,
+  inputChangeHandler: PropTypes.func.isRequired
 };
 
 export default Image;
