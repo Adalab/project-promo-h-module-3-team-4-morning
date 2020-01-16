@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import "../stylesheets/image.scss";
 import PropTypes from "prop-types";
 
-class Image extends React.Component {
+class Image extends Component {
   constructor(props) {
     super(props);
     this.fr = new FileReader();

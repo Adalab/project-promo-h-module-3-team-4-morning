@@ -9,13 +9,13 @@ const Input = props => {
       id: ev.target.id
     });
   };
-
+  const { text, type, htmlFor, name, placeholder, pattern, value } = props;
   return (
     <div>
       <label className="fill__lable" htmlFor={props.htmlFor}>
-        {props.text}
+        {text}
       </label>
-      <input onChange={inputChangeHandler} className="fill__box" type={props.type} id={props.htmlFor} name={props.name} placeholder={props.placeholder} pattern={props.pattern} value={props.value} required />
+      <input onChange={inputChangeHandler} className="fill__box" type={type} id={htmlFor} name={name} placeholder={placeholder} pattern={pattern} value={value} required />
     </div>
   );
 };

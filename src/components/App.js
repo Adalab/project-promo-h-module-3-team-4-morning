@@ -68,7 +68,7 @@ class App extends Component {
       if (!!prevState.name &&
         !!prevState.job &&
         !!emailRegex.test(prevState.email) &&
-        !!prevState.phone &&
+        !!prevState.photo &&
         !!prevState.linkedin &&
         !!prevState.github &&
         !!phoneRegex.test(prevState.phone)) {
@@ -104,10 +104,10 @@ class App extends Component {
       })
       this.sendRequest(this.state);
     } else {
+      alert('Por favor, cumplimente correctamente todos los campos del formulario')
       this.setState({
         errorMessage: 'Por favor, cumplimente correctamente los siguientes campos del formulario:'
       })
-      console.log('vamos bien')
     }
   }
 
@@ -138,21 +138,10 @@ class App extends Component {
                     github={this.state.github}
                   />
                   <Form
-                    palette={this.state.palette}
+                    state={this.state}
                     inputChangeHandler={this.inputChangeHandler}
-                    name={this.state.name}
-                    job={this.state.job}
-                    email={this.state.email}
-                    phone={this.state.phone}
-                    linkedin={this.state.linkedin}
-                    github={this.state.github}
-                    photo={this.state.photo}
                     handleFetch={this.handleFetch}
-                    url={this.state.url}
-                    loading={this.state.isLoading}
-                    shareURL={this.state.url}
-                    shareValue={this.state.shareButton}
-                    errorMessage={this.state.errorMessage}
+                    shareButton={this.state.shareButton}
                   />
                 </main>
               </>

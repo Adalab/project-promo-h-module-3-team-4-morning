@@ -19,7 +19,7 @@ class Form extends React.Component {
 
   handleCollapsibleAction(ev) {
     let clickedId = ev.target.id;
-    this.setState((prevState, props) => {
+    this.setState(prevState => {
       if (prevState.collapsibleId === clickedId) {
         return {
           collapsibleId: null
@@ -33,17 +33,19 @@ class Form extends React.Component {
   }
 
   render() {
+    const { inputChangeHandler, handleFetch } = this.props;
+    const { palette, name, job, email, phone, linkedin, github, photo, url, isLoading, shareButton, errorMessage } = this.props.state;
     return (
       <section className="form">
         <form>
           <Collapsible title="Diseña" icon={faObjectUngroup} id="C1" collapsibleId={this.state.collapsibleId} handleCollapsibleAction={this.handleCollapsibleAction}>
-            <Design inputChangeHandler={this.props.inputChangeHandler} palette={this.props.palette} />
+            <Design inputChangeHandler={inputChangeHandler} palette={palette} />
           </Collapsible>
           <Collapsible title="Rellena" icon={faKeyboard} id="C2" collapsibleId={this.state.collapsibleId} handleCollapsibleAction={this.handleCollapsibleAction}>
-            <Fill name={this.props.name} job={this.props.job} email={this.props.email} phone={this.props.phone} linkedin={this.props.linkedin} github={this.props.github} inputChangeHandler={this.props.inputChangeHandler} photo={this.props.photo} fileSelectedHandler={this.props.fileSelectedHandler} />
+            <Fill name={name} job={job} email={email} phone={phone} linkedin={linkedin} github={github} inputChangeHandler={inputChangeHandler} photo={photo} />
           </Collapsible>
           <Collapsible title="Comparte" icon={faShareAlt} id="C3" collapsibleId={this.state.collapsibleId} handleCollapsibleAction={this.handleCollapsibleAction}>
-            <Share fetchFunction={this.props.fetchFunction} handleFetch={this.props.handleFetch} url={this.props.url} loading={this.props.loading} shareValue={this.props.shareValue} shareURL={this.props.shareURL} errorMessage={this.props.errorMessage} name={this.props.name} job={this.props.job} email={this.props.email} phone={this.props.phone} linkedin={this.props.linkedin} github={this.props.github} photo={this.props.photo} />
+            <Share handleFetch={handleFetch} url={url} loading={isLoading} shareValue={shareButton} errorMessage={errorMessage} name={name} job={job} email={email} phone={phone} linkedin={linkedin} github={github} photo={photo} />
           </Collapsible>
         </form>
       </section>

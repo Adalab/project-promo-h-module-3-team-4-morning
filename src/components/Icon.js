@@ -3,17 +3,16 @@ import "../stylesheets/icons.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from "prop-types";
 
-class Icon extends React.Component {
-  render() {
-    return (
-      <li className={`menu__items ${this.props.classLi}`}>
-        <a className={`menu__links ${this.props.classA}`} href={this.props.href} target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon className={this.props.classI} icon={this.props.icon} />
-        </a>
-      </li>
-    );
-  }
-}
+const Icon = props => {
+  const { classLi, classA, href, icon, classI } = props;
+  return (
+    <li className={`menu__items ${classLi}`}>
+      <a className={`menu__links ${classA}`} href={href} target="_blank" rel="noopener noreferrer">
+        <FontAwesomeIcon className={classI} icon={icon} />
+      </a>
+    </li>
+  );
+};
 
 Icon.propTypes = {
   classLi: PropTypes.string,
@@ -24,5 +23,3 @@ Icon.propTypes = {
 };
 
 export default Icon;
-
-// meter props type y default, por ejemplo en el href. Definir que tipo de dato espera recibir el componente.
