@@ -8,15 +8,15 @@ const Palette = props => {
       id: 'palette'
     });
   }
-
+  const { htmlFor, checked, value, color1, color2, color3 } = props
   return (
     <div>
-      <label className="design-box__theme" htmlFor={props.htmlFor}>
-        <input onChange={inputChangeHandler} id={props.htmlFor} type="radio" checked={props.checked} value={props.value} name="palette" />
+      <label className="design-box__theme" htmlFor={htmlFor}>
+        <input onChange={inputChangeHandler} id={htmlFor} type="radio" checked={checked} value={value} name="palette" />
         <div className="colors__container">
-          <div className={props.color1}></div>
-          <div className={props.color2}></div>
-          <div className={props.color3}></div>
+          <div className={color1}></div>
+          <div className={color2}></div>
+          <div className={color3}></div>
         </div>
       </label>
     </div>

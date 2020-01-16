@@ -6,43 +6,43 @@ import { faAddressCard } from '@fortawesome/free-regular-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 
-class Share extends React.Component {
-  render() {
-    const twitterText = 'Mira que tarjeta más chula me acabo de crear! Esta es mi tarjeta: '
-    const loadingElement = this.props.loading ? (<div className="loader__container"><Loader className="loader" type="ThreeDots" color="grey" height="100" width="100" /></div>) : null;
-    const errorMessage = this.props.errorMessage ? <p>{this.props.errorMessage}</p> : null;
-    const twitterBtn = this.props.url
-      ? (<fieldset className={`twitter `}>
-        <h2 className="twitter__title">La tarjeta ha sido creada:</h2>
-        {errorMessage}
-        <a className="twitter__link " target="_blank" rel="noopener noreferrer" href={this.props.url}>¡Click aquí para ver tu tarjeta! :)</a>
-        <button className="twitter__button ">
-          <a href={`https://twitter.com/intent/tweet?text=${twitterText}${this.props.url}`} target="_blank" rel="noopener noreferrer" className="twitter__link2" >
-            <FontAwesomeIcon className="twitter__button--icon" icon={faTwitter} />
-            Compartir en Twitter </a></button>
-      </fieldset >)
-      : null;
+const Share = props => {
+  const { loading, errorMessage, url, handleFetch, name, job, photo, phone, email, linkedin, github, shareValue } = props
+  const twitterText = 'Mira que tarjeta más chula me acabo de crear! Esta es mi tarjeta: '
+  const loadingElement = loading ? (<div className="loader__container"><Loader className="loader" type="ThreeDots" color="grey" height="100" width="100" /></div>) : null;
+  const errorMessageLoged = errorMessage ? <p>{errorMessage}</p> : null;
+  const twitterBtn = url
+    ? (<fieldset className="twitter">
+      <h2 className="twitter__title">La tarjeta ha sido creada:</h2>
+      {errorMessageLoged}
+      <a className="twitter__link " target="_blank" rel="noopener noreferrer" href={url}>¡Click aquí para ver tu tarjeta! :)</a>
+      <button className="twitter__button">
+        <a href={`https://twitter.com/intent/tweet?text=${twitterText}${url}`} target="_blank" rel="noopener noreferrer" className="twitter__link2" >
+          <FontAwesomeIcon className="twitter__button--icon" icon={faTwitter} />
+          Compartir en Twitter </a></button>
+    </fieldset >)
+    : null;
 
+  return (
 
-    return (
-      <fieldset className="share" >
-        <button onClick={this.props.handleFetch} type="submit" className={`share__btn ${this.props.shareValue}`}>
-          <FontAwesomeIcon className="share__icon" icon={faAddressCard} />
-          Crear tarjeta
+    <fieldset className="share" >
+      <button onClick={handleFetch} type="submit" className={`share__btn ${shareValue}`}>
+        <FontAwesomeIcon className="share__icon" icon={faAddressCard} />
+        Crear tarjeta
         </button>
-        {errorMessage}
-        {!this.props.name && !!this.props.errorMessage && <li>Nombre completo</li>}
-        {!this.props.job && !!this.props.errorMessage && <li>Puesto</li>}
-        {!this.props.photo && !!this.props.errorMessage && <li>Imagen de perfil</li>}
-        {!this.props.email && !!this.props.errorMessage && <li>Email</li>}
-        {!this.props.phone && !!this.props.errorMessage && <li>Teléfono</li>}
-        {!this.props.linkedin && !!this.props.errorMessage && <li>LinkedIn</li>}
-        {!this.props.github && !!this.props.errorMessage && <li>Github</li>}
-        {loadingElement}
-        {twitterBtn}
-      </fieldset>
-    )
-  }
-}
+      {errorMessage}
+      {!name && !!errorMessage && <li>Nombre completo</li>}
+      {!job && !!errorMessage && <li>Puesto</li>}
+      {!photo && !!errorMessage && <li>Imagen de perfil</li>}
+      {!email && !!errorMessage && <li>Email</li>}
+      {!phone && !!errorMessage && <li>Teléfono</li>}
+      {!linkedin && !!errorMessage && <li>LinkedIn</li>}
+      {!github && !!errorMessage && <li>Github</li>}
+      {loadingElement}
+      {twitterBtn}
+    </fieldset>
+
+  );
+};
 
 export default Share;

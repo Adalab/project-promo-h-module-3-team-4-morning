@@ -139,20 +139,9 @@ class App extends Component {
                   />
                   <Form
                     state={this.state}
-                    // palette={this.state.palette}
                     inputChangeHandler={this.inputChangeHandler}
-                    // name={this.state.name}
-                    // job={this.state.job}
-                    // email={this.state.email}
-                    // phone={this.state.phone}
-                    // linkedin={this.state.linkedin}
-                    // github={this.state.github}
-                    // photo={this.state.photo}
                     handleFetch={this.handleFetch}
-                  // url={this.state.url}
-                  // loading={this.state.isLoading}
-                  // shareValue={this.state.shareButton}
-                  // errorMessage={this.state.errorMessage}
+                    shareButton={this.state.shareButton}
                   />
                 </main>
               </>

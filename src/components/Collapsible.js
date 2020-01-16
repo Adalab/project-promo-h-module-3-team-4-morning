@@ -3,26 +3,26 @@ import "../stylesheets/collapsibles.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
+const Collapsible = props => {
+  const { collapsibleId, id, handleCollapsibleAction, icon, title, children } = props
 
-class Collapsible extends React.Component {
-  render() {
-    return (
-      <section id={this.props.id} className={this.props.collapsibleId === this.props.id ? 'open' : ''}>
-        <legend onClick={this.props.handleCollapsibleAction} className='collapsible' id={this.props.id}>
-          <div className="collapsible__left">
-            <div className="collapsible__left--fav ">
-              <FontAwesomeIcon icon={this.props.icon} />
-            </div>
-            <h2 className="collapsible__left--title">{this.props.title}</h2>
+  return (
+    <section id={id} className={collapsibleId === id ? 'open' : ''}>
+      <legend onClick={handleCollapsibleAction} className='collapsible' id={id}>
+        <div className="collapsible__left">
+          <div className="collapsible__left--fav ">
+            <FontAwesomeIcon icon={icon} />
           </div>
-          <FontAwesomeIcon className="collapsible--arrow" icon={faChevronUp} />
-        </legend>
-        <div className="collapsible--window">
-          {this.props.children}
+          <h2 className="collapsible__left--title">{title}</h2>
         </div>
-      </section>
-    );
-  }
-}
+        <FontAwesomeIcon className="collapsible--arrow" icon={faChevronUp} />
+      </legend>
+      <div className="collapsible--window">
+        {children}
+      </div>
+    </section>
+
+  );
+};
 
 export default Collapsible;
