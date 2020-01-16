@@ -9,6 +9,9 @@ import PropTypes from "prop-types";
 const Share = props => {
   const { loading, errorMessage, url, handleFetch, name, job, photo, phone, email, linkedin, github, shareValue } = props;
   const twitterText = "Mira que tarjeta más chula me acabo de crear! Esta es mi tarjeta: ";
+  if (loading === true) {
+    debugger;
+  }
   const loadingElement = loading ? (
     <div className="loader__container">
       <Loader className="loader" type="ThreeDots" color="grey" height="100" width="100" />

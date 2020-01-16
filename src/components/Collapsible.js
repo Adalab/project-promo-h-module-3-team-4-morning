@@ -25,7 +25,7 @@ const Collapsible = props => {
 
 Collapsible.propTypes = {
   id: PropTypes.string.isRequired,
-  collapsibleId: PropTypes.string.isRequired,
+  collapsibleId: PropTypes.string,
   handleCollapsibleAction: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   icon: PropTypes.object.isRequired

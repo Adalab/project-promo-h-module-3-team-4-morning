@@ -18,7 +18,7 @@ class Form extends React.Component {
   }
 
   handleCollapsibleAction(ev) {
-    let clickedId = ev.target.id;
+    let clickedId = ev.currentTarget.id;
     this.setState(prevState => {
       if (prevState.collapsibleId === clickedId) {
         return {

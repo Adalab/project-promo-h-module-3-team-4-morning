@@ -20,12 +20,13 @@ class App extends Component {
       phone: "",
       linkedin: "",
       github: "",
-      palette: "1",
-      shareButton: "filter",
-      url: "",
-      isLoading: "",
-      errorMessage: ""
+      palette: "1"
     });
+    localStorageData.shareButton = "filter";
+    localStorageData.url = "";
+    localStorageData.isLoading = false;
+    localStorageData.errorMessage = "";
+
     this.state = localStorageData;
     this.inputChangeHandler = this.inputChangeHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
@@ -76,6 +77,10 @@ class App extends Component {
   }
 
   sendRequest(json) {
+    this.setState({
+      isLoading: true,
+      url: ""
+    });
     createCardFetch(json)
       .then(data => {
         this.setState({
@@ -84,7 +89,7 @@ class App extends Component {
         });
         return data.cardURL;
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
@@ -92,10 +97,6 @@ class App extends Component {
   handleFetch(ev) {
     ev.preventDefault();
     if (this.state.shareButton === "") {
-      this.setState({
-        isLoading: true,
-        url: ""
-      });
       this.sendRequest(this.state);
     } else {
       alert("Por favor, cumplimente correctamente todos los campos del formulario");
@@ -106,7 +107,8 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    localStorage.set("user", this.state);
+    const { name, job, photo, email, github, linkedin, phone, palette } = this.state;
+    localStorage.set("user", { name, job, photo, email, github, linkedin, phone, palette });
   }
 
   render() {
