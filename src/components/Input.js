@@ -10,10 +10,12 @@ const Input = props => {
     });
   };
   const { text, type, htmlFor, name, placeholder, pattern, value } = props;
+
+  const star = <span class="fill__star">*</span>
   return (
     <div>
       <label className="fill__lable" htmlFor={props.htmlFor}>
-        {text}
+        {text}{star}
       </label>
       <input onChange={inputChangeHandler} className="fill__box" type={type} id={htmlFor} name={name} placeholder={placeholder} pattern={pattern} value={value} required />
     </div>

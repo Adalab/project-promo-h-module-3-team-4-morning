@@ -12,4 +12,9 @@
           flex-direction: column;
   border-bottom: $bottomBorder solid 1px;
   padding-top: 25px;
+  
+  &__star {
+    color: $colorPrimary;
+    font-size: 13px;
+  }
 }

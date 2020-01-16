@@ -16,7 +16,7 @@ const Share = props => {
       <Loader className="loader" type="ThreeDots" color="grey" height="100" width="100" />
     </div>
   ) : null;
-  const errorMessageLoged = errorMessage ? <p>{errorMessage}</p> : null;
+  const errorMessageLoged = errorMessage ? <p className="error__title">{errorMessage}</p> : null;
   const twitterBtn = url ? (
     <fieldset className="twitter">
       <h2 className="twitter__title">La tarjeta ha sido creada:</h2>
@@ -39,16 +39,18 @@ const Share = props => {
         <FontAwesomeIcon className="share__icon" icon={faAddressCard} />
         Crear tarjeta
       </button>
-      {errorMessage}
-      {!name && !!errorMessage && <li>Nombre completo</li>}
-      {!job && !!errorMessage && <li>Puesto</li>}
-      {!photo && !!errorMessage && <li>Imagen de perfil</li>}
-      {!emailRegex.test(email) && !!errorMessage && <li>Email</li>}
-      {!phoneRegex.test(phone) && !!errorMessage && <li>Teléfono</li>}
-      {!linkedin && !!errorMessage && <li>LinkedIn</li>}
-      {!github && !!errorMessage && <li>Github</li>}
-      {loadingElement}
-      {twitterBtn}
+      <div className="error">
+        {errorMessageLoged}
+        {!name && !!errorMessage && <li className="error__field">Nombre completo</li>}
+        {!job && !!errorMessage && <li className="error__field">Puesto</li>}
+        {!photo && !!errorMessage && <li className="error__field">Imagen de perfil</li>}
+        {!emailRegex.test(email) && !!errorMessage && <li className="error__field">Email</li>}
+        {!phoneRegex.test(phone) && !!errorMessage && <li className="error__field">Teléfono</li>}
+        {!linkedin && !!errorMessage && <li className="error__field">LinkedIn</li>}
+        {!github && !!errorMessage && <li className="error__field">Github</li>}
+        {loadingElement}
+        {twitterBtn}
+      </div>
     </fieldset>
   );
 };

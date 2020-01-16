@@ -34,6 +34,8 @@
     padding-right: 9px;
     font-size: 25px;
   }
+
+ 
 }
 
 .twitter {
@@ -110,4 +112,23 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.error{
+  font-family: $fontPrimary;
+  color: $colorPrimary;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  padding: 15px;
+  margin-bottom: 10px;
+  
+  &__title{
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  &__field{
+  line-height: 16px;
+  font-style: italic;  }
 }

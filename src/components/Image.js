@@ -28,11 +28,14 @@ class Image extends Component {
     });
   }
 
+
   render() {
+    const star = <span class="fill__star">*</span>;
+
     return (
       <div>
         <label className="fill__lable" htmlFor="image">
-          Imagen de perfil
+          Imagen de perfil {star}
         </label>
         <div className="fill__image">
           <button type="button" onClick={this.handleClick} className="fill__image--button">
